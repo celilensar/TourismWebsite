@@ -1,0 +1,87 @@
+@model TourismWebsite.Models.LoginViewModel
+@{
+    ViewData["Title"] = "Giriş Yap";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml"; // Layout dosyası güncellendi
+}
+
+<div class="auth-container">
+    <div class="auth-form-section">
+        <div class="form-content-wrapper">
+            <div class="form-header">
+                <div class="logo">TourismWebsite</div>
+                <div class="tabs">
+                    <a asp-controller="Account" asp-action="Login" class="active">Log In</a>
+                    <a asp-controller="Account" asp-action="Register">Sign Up</a>
+                </div>
+            </div>
+
+            <section>
+                <form asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+                    @* Kayıt sonrası başarı mesajını göster - Daha belirgin hale getirilebilir *@
+                    @if (ViewData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success mb-3" role="alert">
+                            @ViewData["SuccessMessage"]
+                        </div>
+                    }
+                    
+                    @* Genel model hataları *@
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="form-group">
+                        <label asp-for="Email" class="control-label">Email Address</label>
+                        <input asp-for="Email" class="form-control" autocomplete="username" aria-required="true" placeholder="Enter your email address..." />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                         <label asp-for="Password" class="control-label">Password</label>
+                         <input asp-for="Password" type="password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="Enter your password..." />
+                         <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    @* <div class="form-group d-flex justify-content-between align-items-center">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" asp-for="RememberMe" />
+                            <label class="form-check-label" asp-for="RememberMe">
+                                @Html.DisplayNameFor(m => m.RememberMe)
+                            </label>
+                        </div>
+                        <a href="#">Forgot Password?</a> // Şifremi unuttum bağlantısı
+                    </div> *@
+
+                    <button type="submit" class="btn btn-primary">Log In</button>
+
+                    <div class="or-separator">OR</div>
+
+                    <button type="button" class="btn social-btn">
+                         @* Google ikonu *@
+                         <span>Continue with Google</span>
+                    </button>
+                     <button type="button" class="btn social-btn">
+                         @* Apple ikonu *@
+                         <span>Continue with Apple</span>
+                    </button>
+                     <button type="button" class="btn social-btn">
+                         @* Wallet ikonu *@
+                         <span>Continue with Wallet</span>
+                    </button>
+                    
+                    @* Kayıt linki - isteğe bağlı, sekmelerde zaten var *
+                    <div class="mt-4 text-center">
+                        <p class="text-sm">
+                            Don't have an account? 
+                            <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" class="font-medium text-primary hover:underline">Sign Up</a>
+                        </p>
+                    </div> 
+                    *@
+                </form>
+            </section>
+        </div>
+    </div>
+    <div class="auth-image-section">
+        @* Sağ tarafa görsel (CSS ile) *@
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} 

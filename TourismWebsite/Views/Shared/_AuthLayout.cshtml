@@ -1,0 +1,203 @@
+@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TourismWebsite</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> @* Bootstrap Icons eklendi *@
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TourismWebsite.styles.css" asp-append-version="true" />
+</head>
+<body>
+    @* Yeni Navbar Başlangıcı *@
+    <header class="sticky-top bg-background border-bottom shadow-sm">
+        <nav class="container navbar-modern">
+            @* Desktop Navbar *@
+            <div class="d-none d-lg-flex justify-content-between align-items-center py-2">
+                <div class="d-flex align-items-center gap-4">
+                    @* Logo *@
+                    <a class="navbar-brand d-flex align-items-center gap-2" asp-area="" asp-controller="Home" asp-action="Index">
+                        @* <img src="/images/logo.svg" alt="TourismWebsite Logo" class="navbar-logo-img"> *@
+                        <span class="navbar-logo-text">TourismWebsite</span>
+                    </a>
+                    @* Menü Linkleri *@
+                    <ul class="navbar-nav d-flex flex-row gap-3">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Destinations" asp-action="Index">Destinasyonlar</a>
+                        </li>
+                        @* Açılır menü örneği (gelecekte eklenebilir) *
+                        @* <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Resources
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Help Center</a></li>
+                                <li><a class="dropdown-item" href="#">Contact Us</a></li>
+                            </ul>
+                        </li> *@
+                    </ul>
+                </div>
+                @* Auth Butonları (Desktop) *@
+                <div class="d-flex align-items-center gap-2">
+                    @if (Context.Session.GetString("UserEmail") != null)
+                    {
+                        <span class="navbar-text text-muted me-2 small">
+                            @Context.Session.GetString("UserName")
+                        </span>
+                        <form asp-controller="Account" asp-action="Logout" method="post" id="logoutFormDesktop">
+                            <button type="submit" class="btn btn-sm btn-ghost">Çıkış Yap</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <a class="btn btn-sm btn-ghost" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+                        <a class="btn btn-sm btn-dark-modern" asp-controller="Account" asp-action="Register">Kayıt Ol</a>
+                        <a class="btn btn-sm btn-ghost d-none" asp-controller="Home" asp-action="Privacy">Gizlilik</a> @* Gizlilik buraya da eklenebilir, ya da menüye*@
+
+                    }
+                </div>
+            </div>
+
+            @* Mobile Navbar *@
+            <div class="d-lg-none d-flex justify-content-between align-items-center py-2">
+                 @* Logo *@
+                 <a class="navbar-brand d-flex align-items-center gap-2" asp-area="" asp-controller="Home" asp-action="Index">
+                    @* <img src="/images/logo.svg" alt="TourismWebsite Logo" class="navbar-logo-img"> *@
+                    <span class="navbar-logo-text">TourismWebsite</span>
+                 </a>
+                 @* Mobile Menu Trigger *@
+                 <button class="btn btn-sm btn-ghost p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNavbarOffcanvas" aria-controls="mobileNavbarOffcanvas">
+                    <i class="bi bi-list" style="font-size: 1.4rem;"></i> @* Bootstrap Icon Menu *@
+                 </button>
+            </div>
+        </nav>
+    </header>
+
+    @* Mobile Offcanvas Menu *@
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNavbarOffcanvas" aria-labelledby="mobileNavbarOffcanvasLabel">
+      <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title navbar-logo-text" id="mobileNavbarOffcanvasLabel">TourismWebsite</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+            <ul class="navbar-nav flex-grow-1 gap-2 mb-4">
+                <li class="nav-item">
+                    <a class="nav-link fs-6 fw-medium" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-6 fw-medium" asp-area="" asp-controller="Destinations" asp-action="Index">Destinasyonlar</a>
+                </li>
+                 <li class="nav-item">
+                    <a class="nav-link fs-6 fw-medium" asp-area="" asp-controller="Home" asp-action="Privacy">Gizlilik</a>
+                </li>
+                @* Mobil açılır menü eklenebilir (Accordion ile) *@
+            </ul>
+            <hr>
+            <div class="mt-auto">
+                @* Auth Butonları (Mobile) *@
+                @if (Context.Session.GetString("UserEmail") != null)
+                {
+                    <div class="d-flex flex-column gap-2">
+                         <span class="navbar-text text-muted text-center small mb-2">
+                            @Context.Session.GetString("UserName")
+                         </span>
+                         <form asp-controller="Account" asp-action="Logout" method="post" id="logoutFormMobile">
+                             <button type="submit" class="btn btn-ghost w-100">Çıkış Yap</button>
+                         </form>
+                    </div>
+                }
+                else
+                {
+                    <div class="d-flex flex-column gap-2">
+                        <a class="btn btn-ghost w-100" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+                        <a class="btn btn-dark-modern w-100" asp-controller="Account" asp-action="Register">Kayıt Ol</a>
+                    </div>
+                }
+            </div>
+      </div>
+    </div>
+    @* Yeni Navbar Bitişi *@
+
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+
+    @* Yeni Footer Başlangıcı *@
+    <footer class="footer-section border-top py-5 bg-light">
+        <div class="container">
+            <div class="row gy-4">
+                @* Logo ve Tagline *@
+                <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                    <div class="footer-logo mb-3">
+                        @* Buraya bir logo img eklenebilir veya sadece metin kullanılabilir *@
+                        <a class="h5 fw-bold text-decoration-none text-dark" asp-area="" asp-controller="Home" asp-action="Index">TourismWebsite</a>
+                    </div>
+                    <p class="footer-tagline text-muted small">Harika yerler keşfedin.</p>
+                </div>
+
+                @* Menü Sütunları (Örnek) *@
+                <div class="col-6 col-lg-2">
+                    <h6 class="footer-heading mb-3 fw-bold">Keşfet</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a asp-controller="Destinations" asp-action="Index">Destinasyonlar</a></li>
+                        <li><a href="#">Turlar</a></li>
+                        <li><a href="#">Aktiviteler</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="footer-heading mb-3 fw-bold">Şirket</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Hakkımızda</a></li>
+                        <li><a href="#">Kariyer</a></li>
+                        <li><a href="#">İletişim</a></li>
+                        <li><a asp-controller="Home" asp-action="Privacy">Gizlilik</a></li> 
+                    </ul>
+                </div>
+                 <div class="col-6 col-lg-2">
+                    <h6 class="footer-heading mb-3 fw-bold">Yardım</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Destek Merkezi</a></li>
+                        <li><a href="#">SSS</a></li>
+                        <li><a href="#">Rezervasyon İptali</a></li>
+                    </ul>
+                </div>
+                 <div class="col-6 col-lg-3">
+                    <h6 class="footer-heading mb-3 fw-bold">Sosyal Medya</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            @* Copyright ve Alt Linkler *@
+            <div class="row border-top pt-3 mt-4 footer-bottom-row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small text-muted mb-0">© @DateTime.Now.Year TourismWebsite. Tüm hakları saklıdır.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0 footer-bottom-links">
+                        <li class="list-inline-item"><a asp-controller="Home" asp-action="Privacy">Gizlilik Politikası</a></li>
+                        <li class="list-inline-item"><a href="#">Kullanım Şartları</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    @* Yeni Footer Bitişi *@
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html> 

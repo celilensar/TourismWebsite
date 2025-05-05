@@ -1,0 +1,87 @@
+﻿@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<style>
+    .hero-section {
+        background: url('/images/placeholder-hero.jpg') no-repeat center center;
+        background-size: cover;
+        padding: 100px 0;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+    .hero-section h1 {
+        font-size: 3.5rem;
+        font-weight: bold;
+    }
+    .hero-section p {
+        font-size: 1.4rem;
+    }
+    .card img {
+        height: 200px; /* Kart resim yüksekliğini sabitle */
+        object-fit: cover; /* Resmin orantısını koruyarak sığdır */
+    }
+</style>
+
+<!-- Hero Section -->
+<div class="hero-section text-center mb-5">
+    <div class="container">
+        <h1 class="display-4">Hayalinizdeki Tatili Keşfedin!</h1>
+        <p class="lead">Türkiye'nin ve dünyanın dört bir yanındaki eşsiz rotaları ve unutulmaz tur fırsatlarını sizin için bir araya getirdik.</p>
+        <a href="#" class="btn btn-primary btn-lg mt-3">Turları İncele</a> @* Linki sonra ayarlarız *@
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- Öne Çıkan Rotalar -->
+    <h2 class="text-center mb-4">Öne Çıkan Rotalar</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+        <div class="col">
+            <div class="card h-100">
+                <img src="/images/placeholder-rota1.jpg" class="card-img-top" alt="Rota 1">
+                <div class="card-body">
+                    <h5 class="card-title">Kapadokya Balon Turu</h5>
+                    <p class="card-text">Peribacalarının üzerinde unutulmaz bir balon yolculuğu ile güne başlayın.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-outline-secondary btn-sm">Detaylar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="/images/placeholder-rota2.jpg" class="card-img-top" alt="Rota 2">
+                <div class="card-body">
+                    <h5 class="card-title">Ege Sahilleri Mavi Yolculuk</h5>
+                    <p class="card-text">Turkuaz koylarda yüzün, antik kentleri keşfedin ve güneşin tadını çıkarın.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-outline-secondary btn-sm">Detaylar</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <img src="/images/placeholder-rota3.jpg" class="card-img-top" alt="Rota 3">
+                <div class="card-body">
+                    <h5 class="card-title">Karadeniz Yaylaları Turu</h5>
+                    <p class="card-text">Doğanın kalbinde, yemyeşil yaylalarda huzurlu ve otantik bir deneyim yaşayın.</p>
+                </div>
+                <div class="card-footer">
+                    <a href="#" class="btn btn-outline-secondary btn-sm">Detaylar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hakkımızda/Tanıtım -->
+    <div class="row mb-5">
+        <div class="col-md-8 offset-md-2 text-center">
+            <h2>Biz Kimiz?</h2>
+            <p class="lead">[Şirket Adı/Proje Adı] olarak, seyahat tutkunlarına en iyi deneyimleri sunmak için buradayız. Uzman ekibimizle hazırladığımız turlar ve seçkin rotalarla unutulmaz anılar biriktirmenizi hedefliyoruz. Keşfetmeye hazır mısınız?</p>
+            <a asp-controller="Account" asp-action="Register" class="btn btn-success">Hemen Kayıt Olun!</a>
+        </div>
+    </div>
+
+</div>
