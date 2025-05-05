@@ -3,45 +3,216 @@
 }
 
 <style>
-    .hero-section {
-        background: url('/images/placeholder-hero.jpg') no-repeat center center;
-        background-size: cover;
-        padding: 100px 0;
-        color: white;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    /* Carousel Styles */
+    #heroCarousel {
+        width: 100vw; /* Tam viewport genişliği */
+        max-width: 100vw; /* Genişlik sınırını kaldır */
+        margin-left: calc(50% - 50vw); /* Soldaki potansiyel boşluğu sıfırla */
+        margin-right: calc(50% - 50vw); /* Sağdaki potansiyel boşluğu sıfırla */
+        padding-left: 0;
+        padding-right: 0;
+        /* position: absolute; Kaldırıldı */
+        /* top: 0; Kaldırıldı */
+        /* left: 0; Kaldırıldı */
+        /* z-index: -1; Kaldırıldı */
+        /* mb-5 sınıfı zaten alt boşluk veriyor */
     }
-    .hero-section h1 {
-        font-size: 3.5rem;
+
+    .carousel-item {
+        height: 75vh; /* Yüksekliği biraz artırdım - Ayarlanabilir */
+        min-height: 400px;
+        background: no-repeat center center scroll;
+        background-size: cover;
+        /* Fade animasyon süresini ayarla */
+        transition: opacity 1s ease-in-out; /* Süreyi 1 saniye yaptık */
+    }
+    .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        filter: brightness(60%); /* Biraz daha kararttım */
+    }
+    .carousel-caption {
+        bottom: auto; /* Alt konumu sıfırla */
+        top: 50%; /* Dikeyde ortala */
+        transform: translateY(-50%); /* Tam ortalamak için */
+        left: 10%; /* Sola yasla */
+        right: auto; /* Sağı sıfırla */
+        width: auto; /* Genişliği otomatik yap */
+        max-width: 50%; /* Çok geniş olmasın */
+        text-align: left; /* Metni sola hizala */
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        /* Animasyon başlangıç durumu (isteğe bağlı) */
+        /* opacity: 0; */ 
+    }
+     .carousel-caption h1 {
+        font-size: 3rem; /* Biraz küçülttüm */
         font-weight: bold;
     }
-    .hero-section p {
-        font-size: 1.4rem;
+    .carousel-caption p {
+        font-size: 1.2rem;
     }
-    .card img {
-        height: 200px; /* Kart resim yüksekliğini sabitle */
-        object-fit: cover; /* Resmin orantısını koruyarak sığdır */
+    
+    /* Caption Animasyonu */
+    @@keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translate3d(0, 30px, 0) translateY(-50%); /* translateY(-50%) dikey ortalamayı korur */
+        } 
+        to {
+            opacity: 1;
+            transform: translate3d(0, 0, 0) translateY(-50%);
+        }
     }
+
+    .carousel-item.active .carousel-caption {
+        /* Yazıların her slide'da animasyonla gelmesi için */
+        animation: fadeInUp 0.8s ease-out 0.3s forwards; /* 0.3s gecikme */
+    }
+
+    /* Modern Indicators */
+    .carousel-indicators button {
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+        margin: 0 5px;
+        background-color: rgba(255, 255, 255, 0.5);
+        border: none;
+    }
+    .carousel-indicators .active {
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+    /* Modern Controls - Opsiyonel: Daha gizli hale getirilebilir */
+    /* .carousel-control-prev, .carousel-control-next { 
+        width: 5%;
+    } 
+    .carousel-control-prev-icon, .carousel-control-next-icon {
+        background-color: rgba(0,0,0,0.3);
+        border-radius: 50%;
+        padding: 15px;
+    }*/
+
+    /* Öne çıkan rotalar kartları için */
+    .featured-routes .card {
+        border: none; /* Kenarlığı kaldır */
+        border-radius: 0.75rem; /* Daha yuvarlak köşeler */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06); /* Yumuşak gölge */
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasyon için geçiş */
+        overflow: hidden; /* Resmin köşeleri taşırmaması için */
+    }
+
+    .featured-routes .card:hover {
+        transform: translateY(-6px); /* Hover'da hafif yukarı kalkma */
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Hover'da gölgeyi belirginleştir */
+    }
+
+    .featured-routes .card img {
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s ease; /* Resim büyüme efekti için */
+    }
+    
+    .featured-routes .card:hover img {
+        transform: scale(1.03); /* Hover'da resmi hafif büyüt */
+    }
+
+    .featured-routes .card-body {
+        padding: 1.25rem; /* İç boşluk */
+    }
+
+    .featured-routes .card-title {
+        font-weight: 600; /* Daha belirgin başlık */
+        margin-bottom: 0.5rem;
+    }
+
+    .featured-routes .card-text {
+        font-size: 0.9rem; /* Biraz daha küçük yazı */
+        color: #6c757d; /* Gri metin */
+        margin-bottom: 1rem;
+    }
+
+    .featured-routes .card-footer {
+        background-color: transparent; /* Footer arkaplanını kaldır */
+        border-top: none; /* Footer üst çizgisini kaldır */
+        padding: 0 1.25rem 1.25rem; /* Footer boşluğu */
+    }
+
+    /* Kart butonu stilini de güncelleyebiliriz */
+    /* .featured-routes .btn-outline-secondary {
+        border-color: #ced4da;
+        color: #495057;
+    } 
+    .featured-routes .btn-outline-secondary:hover {
+        background-color: #e9ecef;
+    }*/
+
+    /* --- Ana İçerik Alanı --- */
+    /* .main-content-below-carousel {
+        margin-top: 50px; Kaldırıldı 
+    } */
 </style>
 
-<!-- Hero Section -->
-<div class="hero-section text-center mb-5">
-    <div class="container">
-        <h1 class="display-4">Hayalinizdeki Tatili Keşfedin!</h1>
-        <p class="lead">Türkiye'nin ve dünyanın dört bir yanındaki eşsiz rotaları ve unutulmaz tur fırsatlarını sizin için bir araya getirdik.</p>
-        <a href="#" class="btn btn-primary btn-lg mt-3">Turları İncele</a> @* Linki sonra ayarlarız *@
+@* Carousel container dışına alındı *@
+<div id="heroCarousel" class="carousel slide carousel-fade mb-5" data-bs-ride="carousel" data-bs-interval="6000"> @* Otomatik geçiş aralığı 6sn *@
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
+    <div class="carousel-inner">
+        @* 1. Slayt: Karadeniz *@
+        <div class="carousel-item active"> @* Active class buraya taşındı *@
+            <img src="/images/slide1.jpg" class="d-block" alt="Karadeniz Manzarası"> @* Resim ve alt text güncellendi *@
+            <div class="carousel-caption d-none d-md-block">
+                 <h1 class="display-4">Karadeniz'in Yeşili</h1> @* Başlık ve metin güncellendi *@
+                 <p class="lead">Doğanın kalbinde, yemyeşil yaylalarda huzur bulun.</p>
+                 <a href="#" class="btn btn-primary btn-lg mt-3">Turları İncele</a>
+            </div>
+        </div>
+        @* 2. Slayt: Ege *@
+        <div class="carousel-item">
+            <img src="/images/slide2.jpg" class="d-block" alt="Ege Sahili"> @* Resim ve alt text güncellendi *@
+            <div class="carousel-caption d-none d-md-block">
+                <h1 class="display-4">Ege'nin Mavisi</h1> @* Başlık ve metin güncellendi *@
+                <p class="lead">Turkuaz koylarda serinleyin, tarihin izlerini sürün.</p>
+                <a href="#" class="btn btn-primary btn-lg mt-3">Turları İncele</a>
+            </div>
+        </div>
+        @* 3. Slayt: Kapadokya *@
+        <div class="carousel-item">
+            <img src="/images/slide3.jpg" class="d-block" alt="Kapadokya Balonlar"> @* Resim ve alt text güncellendi *@
+             <div class="carousel-caption d-none d-md-block">
+                 <h1 class="display-4">Kapadokya'nın Büyüsü</h1> @* Başlık ve metin güncellendi *@
+                 <p class="lead">Peribacaları üzerinde unutulmaz bir balon deneyimi yaşayın.</p>
+                 <a href="#" class="btn btn-primary btn-lg mt-3">Turları İncele</a>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
 </div>
 
-<div class="container">
+@* Sayfa içeriği container içine alındı ve sınıf eklendi *@
+<div class="container main-content-below-carousel">
 
     <!-- Öne Çıkan Rotalar -->
     <h2 class="text-center mb-4">Öne Çıkan Rotalar</h2>
-    <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-5 featured-routes">
         <div class="col">
             <div class="card h-100">
-                <img src="/images/placeholder-rota1.jpg" class="card-img-top" alt="Rota 1">
+                <img src="/images/slide3.jpg" class="card-img-top" alt="Kapadokya">
                 <div class="card-body">
-                    <h5 class="card-title">Kapadokya Balon Turu</h5>
+                    <h5 class="card-title">Kapadokya</h5>
                     <p class="card-text">Peribacalarının üzerinde unutulmaz bir balon yolculuğu ile güne başlayın.</p>
                 </div>
                 <div class="card-footer">
@@ -51,9 +222,9 @@
         </div>
         <div class="col">
             <div class="card h-100">
-                <img src="/images/placeholder-rota2.jpg" class="card-img-top" alt="Rota 2">
+                <img src="/images/slide2.jpg" class="card-img-top" alt="Ege">
                 <div class="card-body">
-                    <h5 class="card-title">Ege Sahilleri Mavi Yolculuk</h5>
+                    <h5 class="card-title">Ege</h5>
                     <p class="card-text">Turkuaz koylarda yüzün, antik kentleri keşfedin ve güneşin tadını çıkarın.</p>
                 </div>
                 <div class="card-footer">
@@ -63,9 +234,9 @@
         </div>
         <div class="col">
             <div class="card h-100">
-                <img src="/images/placeholder-rota3.jpg" class="card-img-top" alt="Rota 3">
+                <img src="/images/slide1.jpg" class="card-img-top" alt="Karadeniz">
                 <div class="card-body">
-                    <h5 class="card-title">Karadeniz Yaylaları Turu</h5>
+                    <h5 class="card-title">Karadeniz</h5>
                     <p class="card-text">Doğanın kalbinde, yemyeşil yaylalarda huzurlu ve otantik bir deneyim yaşayın.</p>
                 </div>
                 <div class="card-footer">

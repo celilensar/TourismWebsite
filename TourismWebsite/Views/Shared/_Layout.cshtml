@@ -7,61 +7,106 @@
     <title>@ViewData["Title"] - TourismWebsite</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TourismWebsite.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TourismWebsite</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+    <header class="sticky-top bg-background border-bottom shadow-sm">
+        <nav class="container navbar-modern">
+            <div class="d-none d-lg-flex justify-content-between align-items-center py-2">
+                <div class="d-flex align-items-center gap-4">
+                    <a class="navbar-brand d-flex align-items-center gap-2" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="/images/logo.png" alt="TourismWebsite Logo" class="navbar-logo-img">
+                    </a>
+                    <ul class="navbar-nav d-flex flex-row gap-3">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Destinations" asp-action="Index">Destinasyonlar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Gizlilik</a>
+                            <a class="nav-link" asp-area="" asp-controller="Destinations" asp-action="Index">Destinasyonlar</a>
                         </li>
                     </ul>
-                    
-                    @* Login/Logout Kısmı *@
-                    <ul class="navbar-nav ms-auto"> @* Sağ tarafa yaslamak için ms-auto *@
-                        @if (Context.Session.GetString("UserEmail") != null)
-                        {
-                            <li class="nav-item">
-                                <span class="navbar-text text-dark me-3">
-                                    Merhaba, @Context.Session.GetString("UserName")!
-                                </span>
-                            </li>
-                            <li class="nav-item">
-                                <form asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="form-inline">
-                                    <button type="submit" class="nav-link btn btn-link text-dark">Çıkış Yap</button>
-                                </form>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Register">Kayıt Ol</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">Giriş Yap</a>
-                            </li>
-                        }
-                    </ul>
-
                 </div>
+                <div class="d-flex align-items-center gap-2">
+                    @if (Context.Session.GetString("UserEmail") != null)
+                    {
+                        <span class="navbar-username navbar-text text-muted me-2 small d-flex align-items-center">
+                            <i class="bi bi-person-fill me-2" style="font-size: 1.1rem;"></i>
+                            @Context.Session.GetString("UserName")
+                        </span>
+                        <form asp-controller="Account" asp-action="Logout" method="post" id="logoutFormDesktop">
+                            <button type="submit" class="btn btn-sm btn-ghost d-flex align-items-center">
+                                <i class="bi bi-power logout-icon me-1"></i>
+                                Çıkış Yap 
+                            </button>
+                        </form>
+                    }
+                    else
+                    {
+                        <a class="btn btn-sm btn-ghost" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+                        <a class="btn btn-sm btn-dark-modern" asp-controller="Account" asp-action="Register">Kayıt Ol</a>
+                        <a class="btn btn-sm btn-ghost" asp-controller="Home" asp-action="Privacy">Gizlilik</a>
+                    }
+                </div>
+            </div>
+
+            <div class="d-lg-none d-flex justify-content-between align-items-center py-2">
+                <a class="navbar-brand d-flex align-items-center gap-2" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="/images/logo.png" alt="TourismWebsite Logo" class="navbar-logo-img">
+                </a>
+                <button class="btn btn-sm btn-ghost p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNavbarOffcanvas" aria-controls="mobileNavbarOffcanvas">
+                    <i class="bi bi-list" style="font-size: 1.4rem;"></i>
+                </button>
             </div>
         </nav>
     </header>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNavbarOffcanvas" aria-labelledby="mobileNavbarOffcanvasLabel">
+      <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title navbar-logo-text" id="mobileNavbarOffcanvasLabel">TourismWebsite</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column">
+            <ul class="navbar-nav flex-grow-1 gap-2 mb-4">
+                <li class="nav-item">
+                    <a class="nav-link fs-6 fw-medium" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-6 fw-medium" asp-area="" asp-controller="Destinations" asp-action="Index">Destinasyonlar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fs-6 fw-medium" asp-area="" asp-controller="Home" asp-action="Privacy">Gizlilik</a>
+                </li>
+            </ul>
+            <hr>
+            <div class="mt-auto">
+                @if (Context.Session.GetString("UserEmail") != null)
+                {
+                    <div class="d-flex flex-column gap-2">
+                         <span class="navbar-username navbar-text text-muted text-center small mb-2 d-flex align-items-center justify-content-center">
+                             <i class="bi bi-person-fill me-2" style="font-size: 1.1rem;"></i>
+                             @Context.Session.GetString("UserName")
+                         </span>
+                         <form asp-controller="Account" asp-action="Logout" method="post" id="logoutFormMobile">
+                             <button type="submit" class="btn btn-ghost w-100 d-flex align-items-center justify-content-center">
+                                 <i class="bi bi-power logout-icon me-2"></i>
+                                 Çıkış Yap
+                             </button>
+                         </form>
+                    </div>
+                }
+                else
+                {
+                    <div class="d-flex flex-column gap-2">
+                        <a class="btn btn-ghost w-100" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+                        <a class="btn btn-dark-modern w-100" asp-controller="Account" asp-action="Register">Kayıt Ol</a>
+                    </div>
+                }
+            </div>
+      </div>
+    </div>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

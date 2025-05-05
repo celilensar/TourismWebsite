@@ -13,8 +13,36 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\ensar\\Documents\\codes\\Tour\\TourismWebsite\\wwwroot\\images\\ege.jpg",
+      "PackagePath": "staticwebassets\\images\\ege.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ensar\\Documents\\codes\\Tour\\TourismWebsite\\wwwroot\\images\\kapadokya.jpg",
+      "PackagePath": "staticwebassets\\images\\kapadokya.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ensar\\Documents\\codes\\Tour\\TourismWebsite\\wwwroot\\images\\karadeniz.jpg",
+      "PackagePath": "staticwebassets\\images\\karadeniz.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ensar\\Documents\\codes\\Tour\\TourismWebsite\\wwwroot\\images\\logo.png",
+      "PackagePath": "staticwebassets\\images\\logo.png"
+    },
+    {
       "Id": "C:\\Users\\ensar\\Documents\\codes\\Tour\\TourismWebsite\\wwwroot\\images\\register-bg.jpg",
       "PackagePath": "staticwebassets\\images\\register-bg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ensar\\Documents\\codes\\Tour\\TourismWebsite\\wwwroot\\images\\slide1.jpg",
+      "PackagePath": "staticwebassets\\images\\slide1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ensar\\Documents\\codes\\Tour\\TourismWebsite\\wwwroot\\images\\slide2.jpg",
+      "PackagePath": "staticwebassets\\images\\slide2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ensar\\Documents\\codes\\Tour\\TourismWebsite\\wwwroot\\images\\slide3.jpg",
+      "PackagePath": "staticwebassets\\images\\slide3.jpg"
     },
     {
       "Id": "C:\\Users\\ensar\\Documents\\codes\\Tour\\TourismWebsite\\wwwroot\\js\\site.js",

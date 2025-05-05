@@ -18,10 +18,10 @@
             @* Desktop Navbar *@
             <div class="d-none d-lg-flex justify-content-between align-items-center py-2">
                 <div class="d-flex align-items-center gap-4">
-                    @* Logo *@
+                    @* Logo metni yerine görsel eklendi *@
                     <a class="navbar-brand d-flex align-items-center gap-2" asp-area="" asp-controller="Home" asp-action="Index">
-                        @* <img src="/images/logo.svg" alt="TourismWebsite Logo" class="navbar-logo-img"> *@
-                        <span class="navbar-logo-text">TourismWebsite</span>
+                        <img src="/images/logo.png" alt="TourismWebsite Logo" class="navbar-logo-img">
+                        @* <span class="navbar-logo-text">TourismWebsite</span> *@
                     </a>
                     @* Menü Linkleri *@
                     <ul class="navbar-nav d-flex flex-row gap-3">
@@ -47,11 +47,17 @@
                 <div class="d-flex align-items-center gap-2">
                     @if (Context.Session.GetString("UserEmail") != null)
                     {
-                        <span class="navbar-text text-muted me-2 small">
-                            @Context.Session.GetString("UserName")
+                        @* Username ve ikon eklendi, class atandı *@
+                        <span class="navbar-username navbar-text text-muted me-2 small d-flex align-items-center">
+                            <i class="bi bi-person-fill me-2" style="font-size: 1.1rem;"></i> @* İkon değiştirildi *@
+                             @Context.Session.GetString("UserName")
                         </span>
                         <form asp-controller="Account" asp-action="Logout" method="post" id="logoutFormDesktop">
-                            <button type="submit" class="btn btn-sm btn-ghost">Çıkış Yap</button>
+                            @* İkon eklendi *@
+                            <button type="submit" class="btn btn-sm btn-ghost d-flex align-items-center">
+                                <i class="bi bi-power logout-icon me-1"></i> @* İkon ve class değiştirildi *@
+                                Çıkış Yap
+                            </button>
                         </form>
                     }
                     else
@@ -66,10 +72,10 @@
 
             @* Mobile Navbar *@
             <div class="d-lg-none d-flex justify-content-between align-items-center py-2">
-                 @* Logo *@
+                 @* Logo metni yerine görsel eklendi *@
                  <a class="navbar-brand d-flex align-items-center gap-2" asp-area="" asp-controller="Home" asp-action="Index">
-                    @* <img src="/images/logo.svg" alt="TourismWebsite Logo" class="navbar-logo-img"> *@
-                    <span class="navbar-logo-text">TourismWebsite</span>
+                     <img src="/images/logo.png" alt="TourismWebsite Logo" class="navbar-logo-img">
+                     @* <span class="navbar-logo-text">TourismWebsite</span> *@
                  </a>
                  @* Mobile Menu Trigger *@
                  <button class="btn btn-sm btn-ghost p-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileNavbarOffcanvas" aria-controls="mobileNavbarOffcanvas">
@@ -82,6 +88,7 @@
     @* Mobile Offcanvas Menu *@
     <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileNavbarOffcanvas" aria-labelledby="mobileNavbarOffcanvasLabel">
       <div class="offcanvas-header border-bottom">
+        @* Offcanvas başlığı metin olarak kaldı, istenirse buraya da logo eklenebilir *@
         <h5 class="offcanvas-title navbar-logo-text" id="mobileNavbarOffcanvasLabel">TourismWebsite</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
@@ -104,11 +111,17 @@
                 @if (Context.Session.GetString("UserEmail") != null)
                 {
                     <div class="d-flex flex-column gap-2">
-                         <span class="navbar-text text-muted text-center small mb-2">
-                            @Context.Session.GetString("UserName")
+                         @* Mobil için de ikon ve class eklendi *@
+                         <span class="navbar-username navbar-text text-muted text-center small mb-2 d-flex align-items-center justify-content-center">
+                             <i class="bi bi-person-fill me-2" style="font-size: 1.1rem;"></i> @* İkon değiştirildi *@
+                             @Context.Session.GetString("UserName")
                          </span>
                          <form asp-controller="Account" asp-action="Logout" method="post" id="logoutFormMobile">
-                             <button type="submit" class="btn btn-ghost w-100">Çıkış Yap</button>
+                             @* İkon eklendi *@
+                             <button type="submit" class="btn btn-ghost w-100 d-flex align-items-center justify-content-center">
+                                 <i class="bi bi-power logout-icon me-2"></i> @* İkon ve class değiştirildi *@
+                                 Çıkış Yap
+                             </button>
                          </form>
                     </div>
                 }
