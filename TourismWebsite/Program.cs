@@ -1,6 +1,18 @@
+using Microsoft.EntityFrameworkCore;
+using TourismWebsite.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+// Get the connection string
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+    ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+
+// Register DbContext
+builder.Services.AddDbContext<TourismContext>(options =>
+    options.UseSqlServer(connectionString));
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
