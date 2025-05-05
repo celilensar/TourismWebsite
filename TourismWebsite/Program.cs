@@ -15,6 +15,15 @@ builder.Services.AddDbContext<TourismContext>(options =>
 
 builder.Services.AddControllersWithViews();
 
+// Add session services
+builder.Services.AddDistributedMemoryCache(); // In-memory session storage
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Set session timeout
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true; // Make the session cookie essential
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -26,7 +35,11 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseRouting();
+// Use Routing before Session
+app.UseRouting(); 
+
+// Add session middleware - IMPORTANT: Before UseAuthorization and MapControllerRoute
+app.UseSession();
 
 app.UseAuthorization();
 
