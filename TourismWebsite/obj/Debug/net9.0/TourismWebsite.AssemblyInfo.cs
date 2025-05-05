@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TourismWebsite")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+955ac4d2a652963416cf86774fe87c11a4fd211c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+458e13c03184c4119395cf949b28a7a7eb7571bb")]
 [assembly: System.Reflection.AssemblyProductAttribute("TourismWebsite")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TourismWebsite")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
