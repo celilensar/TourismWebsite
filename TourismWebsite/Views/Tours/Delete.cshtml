@@ -1,0 +1,29 @@
+@model TourismWebsite.ViewModels.TourDetailViewModel
+
+@{ ViewData["Title"] = "Turu Sil: " + Model.Name; }
+
+<h3>@ViewData["Title"]</h3>
+<hr />
+<h4 class="text-danger">Bu turu silmek istediğinize emin misiniz? Bu işlem geri alınamaz.</h4>
+
+<div>
+    <h5>@Model.Name</h5>
+    <dl class="row mt-3">
+        <dt class="col-sm-3">Destinasyon:</dt>
+        <dd class="col-sm-9">@Model.DestinationName</dd>
+
+        <dt class="col-sm-3">Başlangıç Tarihi:</dt>
+        <dd class="col-sm-9">@Model.StartDate.ToShortDateString()</dd>
+
+        <dt class="col-sm-3">Bitiş Tarihi:</dt>
+        <dd class="col-sm-9">@Model.EndDate.ToShortDateString()</dd>
+        
+        @* Gerekirse diğer önemli bilgiler de eklenebilir *@
+    </dl>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" /> @* Silinecek turun ID'si *@
+        <button type="submit" class="btn btn-danger">Evet, Sil</button>
+        <a asp-action="Index" class="btn btn-outline-secondary ms-2">İptal</a>
+    </form>
+</div> 

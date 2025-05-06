@@ -64,6 +64,26 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[d:/TourismWebsite/TourismWebsite/Views/Tours/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cnNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/TourismWebsite/TourismWebsite/Views/Tours/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cnNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/TourismWebsite/TourismWebsite/Views/Tours/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cnNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/TourismWebsite/TourismWebsite/Views/Tours/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cnNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[d:/TourismWebsite/TourismWebsite/Views/Tours/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG91cnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [d:/TourismWebsite/TourismWebsite/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

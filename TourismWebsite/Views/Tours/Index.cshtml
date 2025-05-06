@@ -1,0 +1,71 @@
+@model IEnumerable<TourismWebsite.ViewModels.TourSummaryViewModel>
+@using Microsoft.AspNetCore.Http // Session kullanımı için eklendi
+
+@{ 
+    // ViewData["Title"] layout tarafından kullanılabilir, biz sayfa içi başlık için PageTitle kullanalım.
+    // ViewData["Title"] = ViewData["PageTitle"] ?? "Turlar"; // Tarayıcı sekmesi için de ayarlanabilir.
+    var isAdmin = Context.Session.GetString("IsAdmin") == "True"; // Admin durumunu al
+}
+
+<h1>@ViewData["PageTitle"]</h1>
+
+@* Admin ise ve belirli bir destinasyonun turları listeleniyorsa "Yeni Tur Ekle" butonu *@
+@if (isAdmin && ViewData["PageTitle"] != null && !ViewData["PageTitle"].ToString().Equals("Tüm Turlar"))
+{
+    // Controller'dan ViewData["CurrentDestinationId"] gibi bir değer almak daha doğru olur.
+    // Şimdilik basit bir create linki koyalım, destinationId'siz, veya controller güncellenmeli.
+    <p><a asp-controller="Tours" asp-action="Create" class="btn btn-success mb-3">Bu Destinasyona Yeni Tur Ekle</a></p>
+}
+else if (isAdmin)
+{
+    <p><a asp-controller="Tours" asp-action="Create" class="btn btn-success mb-3">Genel Yeni Tur Ekle</a></p>
+}
+
+
+<div class="row">
+    @if (!Model.Any())
+    {
+        <div class="col">
+            <p>Gösterilecek tur bulunamadı.</p>
+        </div>
+    }
+    else
+    {
+        foreach (var tour in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    @if (!string.IsNullOrEmpty(tour.ImageUrl))
+                    {
+                        <img src="@tour.ImageUrl" class="card-img-top" alt="@tour.Name" style="height: 200px; object-fit: cover;">
+                    }
+                    else
+                    {
+                        <img src="/images/default-tour-image.jpg" class="card-img-top" alt="Varsayılan Tur Resmi" style="height: 200px; object-fit: cover;"> // Varsayılan resim yolu
+                    }
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">@tour.Name</h5>
+                        <p class="card-text"><small class="text-muted">@tour.DestinationName</small></p>
+                        <p class="card-text"><strong>Fiyat:</strong> @tour.Price.ToString("C")</p>
+                        <p class="card-text"><strong>Başlangıç:</strong> @tour.StartDate.ToShortDateString()</p>
+                        <div class="mt-auto">
+                            <a asp-controller="Tours" asp-action="Details" asp-route-id="@tour.Id" class="btn btn-primary btn-sm">Detayları Gör</a>
+                            @if (isAdmin)
+                            {
+                                <a asp-controller="Tours" asp-action="Edit" asp-route-id="@tour.Id" class="btn btn-warning btn-sm ms-1">Düzenle</a>
+                                <a asp-controller="Tours" asp-action="Delete" asp-route-id="@tour.Id" class="btn btn-danger btn-sm ms-1">Sil</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+@* Opsiyonel: Basit bir stil ekleyebiliriz *@
+<style>
+    .card-title {
+        min-height: 40px; /* Kart başlıklarının aynı hizada kalmasına yardımcı olur */
+    }
+</style> 

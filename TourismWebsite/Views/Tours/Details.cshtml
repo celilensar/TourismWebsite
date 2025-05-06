@@ -1,4 +1,4 @@
-@model TourismWebsite.Models.Tour
+@model TourismWebsite.ViewModels.TourDetailViewModel
 
 @{ ViewData["Title"] = Model.Name + " - Tur Detayları"; }
 
@@ -20,7 +20,7 @@
         <div class="col-md-6">
             <dl class="row">
                 <dt class="col-sm-4">Destinasyon:</dt>
-                <dd class="col-sm-8">@Model.Destination.Name</dd>
+                <dd class="col-sm-8">@Model.DestinationName</dd>
 
                 <dt class="col-sm-4">Süre:</dt>
                 <dd class="col-sm-8">@Model.DurationDays gün</dd>
