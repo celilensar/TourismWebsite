@@ -1,66 +1,122 @@
 @model TourismWebsite.Models.RegisterViewModel
-
-@{ 
-    ViewData["Title"] = "Kayıt Ol"; 
+@{
+    ViewData["Title"] = "Kayıt Ol";
+    Layout = "~/Views/Shared/_AuthLayout.cshtml"; // Layout dosyası güncellendi
 }
 
-<h2>@ViewData["Title"]</h2>
-
-<div class="row">
-    <div class="col-md-6">
-        <form asp-action="Register" method="post">
-            <h4>Yeni bir hesap oluşturun.</h4>
-            <hr />
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
-            <div class="form-group mb-3">
-                <label asp-for="Name"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="Surname"></label>
-                <input asp-for="Surname" class="form-control" />
-                <span asp-validation-for="Surname" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="Email"></label>
-                <input asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="Password"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="ConfirmPassword"></label>
-                <input asp-for="ConfirmPassword" class="form-control" />
-                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="Age"></label>
-                <input asp-for="Age" class="form-control" />
-                <span asp-validation-for="Age" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="Gender"></label>
-                <input asp-for="Gender" class="form-control" placeholder="Erkek / Kadın / Diğer"/>
-                <span asp-validation-for="Gender" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="PhoneNumber"></label>
-                <input asp-for="PhoneNumber" class="form-control" />
-                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group mb-3">
-                <label asp-for="Address"></label>
-                <textarea asp-for="Address" class="form-control" rows="3"></textarea>
-                <span asp-validation-for="Address" class="text-danger"></span>
+<div class="auth-container">
+    <div class="auth-form-section">
+        <div class="form-content-wrapper">
+            <div class="form-header">
+                <div class="logo">TourismWebsite</div>
+                <div class="tabs">
+                    <a asp-controller="Account" asp-action="Login">Log In</a>
+                    <a asp-controller="Account" asp-action="Register" class="active">Sign Up</a>
+                </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Kayıt Ol</button>
-        </form>
+            <form asp-action="Register" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label"></label>
+                            <input asp-for="Name" class="form-control" placeholder="Adınız" />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Surname" class="control-label"></label>
+                            <input asp-for="Surname" class="form-control" placeholder="Soyadınız" />
+                            <span asp-validation-for="Surname" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label">Email Address</label>
+                    <input asp-for="Email" class="form-control" placeholder="Enter your email address..." />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                             <label asp-for="Password" class="control-label">Password</label>
+                             <input asp-for="Password" type="password" class="form-control" placeholder="Enter your password..." />
+                             <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    </div>
+                     <div class="col-md-6">
+                        <div class="form-group">
+                             <label asp-for="ConfirmPassword" class="control-label">Confirm Password</label>
+                             <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Confirm your password..." />
+                             <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Age" class="control-label"></label>
+                            <input asp-for="Age" class="form-control" type="number" placeholder="Yaşınız" />
+                            <span asp-validation-for="Age" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                         <div class="form-group">
+                            <label asp-for="Gender" class="control-label"></label>
+                            <select asp-for="Gender" class="form-control">
+                                <option value="">Seçiniz...</option>
+                                <option value="Erkek">Erkek</option>
+                                <option value="Kadın">Kadın</option>
+                                <option value="Diğer">Diğer</option>
+                            </select>
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="form-group">
+                    <label asp-for="PhoneNumber" class="control-label">Phone Number</label>
+                    <input asp-for="PhoneNumber" class="form-control" placeholder="Telefon Numaranız" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <textarea asp-for="Address" class="form-control" placeholder="Adresiniz"></textarea>
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+
+                <div class="or-separator">OR</div>
+
+                <button type="button" class="btn social-btn">
+                     @* Google ikonu eklenebilir, örn: <img src="/icons/google.svg" alt="Google"> *@
+                     <span>Continue with Google</span>
+                </button>
+                 <button type="button" class="btn social-btn">
+                     @* Apple ikonu eklenebilir *@
+                     <span>Continue with Apple</span>
+                </button>
+                 <button type="button" class="btn social-btn">
+                     @* Wallet ikonu eklenebilir *@
+                     <span>Continue with Wallet</span>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="auth-image-section">
+        @* Sağ tarafa görsel veya içerik eklenebilir (CSS ile eklendi) *@
+         @* <div>
+             Your Awesome<br>Visual Here
+         </div> *@
     </div>
 </div>
 

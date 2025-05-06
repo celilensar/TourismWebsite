@@ -8,8 +8,10 @@ html {
   }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+.btn:focus, .btn:active:focus, .btn.active:focus,
+.btn.focus, .btn:active.focus, .btn.active.focus {
+  outline: none;
+  box-shadow: none;
 }
 
 html {
@@ -17,8 +19,328 @@ html {
   min-height: 100%;
 }
 
+/* --- Dark Theme --- */
 body {
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; Footer yüksekliğine göre ayarlanacak */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; 
+  background-color: #f8fafc; /* Yumuşak Beyaz Arkaplan (slate-50) */
+  color: #1f2937; /* Koyu Gri/Mavi Metin (gray-800) */
+  position: relative; 
+  overflow-x: hidden; 
+}
+
+/* Genel Başlıklar - Koyu Tema Stili Kaldırıldı (Body rengini alacak) */
+/* h1, h2, h3, h4, h5, h6 {
+    color: #f1f5f9; 
+} */
+
+/* Genel Linkler - Koyu Tema Stili Güncellendi */
+a {
+    color: #2563eb; /* Varsayılan Mavi Link (blue-600) */
+    text-decoration: none;
+}
+a:hover {
+     color: #1d4ed8; /* Koyu Mavi Hover (blue-700) */
+}
+
+/* Bootstrap text-muted uyarlaması */
+.text-muted {
+    color: #64748b !important; /* Orta Gri (slate-500) */
+}
+
+/* === Navbar Styles (Dark Theme & Glassmorphism) === */
+header.sticky-top.bg-background {
+    /* background-color: #ffffff !important; */ 
+    background-color: rgba(128, 128, 128, 0.5) !important; /* Yarı saydam Nötr Gri arka plan (%50 Opaklık) */
+    backdrop-filter: blur(10px); 
+    border-color: rgba(128, 128, 128, 0.3) !important; /* Daha şeffaf Gri border (%30 Opaklık) */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important; 
+}
+
+.navbar-logo-text {
+    font-size: 1.125rem; 
+    font-weight: 600; 
+    letter-spacing: -0.025em; 
+    color: #1f2937; /* Logo Rengi - Koyu (gray-800) */
+}
+
+/* Navbar Genel Metin Stili (Logo Hariç) */
+.navbar-modern .nav-link,
+.navbar-modern .navbar-username,
+.navbar-modern .btn-ghost, /* Ghost buton metni */
+.navbar-modern .btn-dark-modern /* Koyu buton metni - Rengi aşağıda ayarlanacak */ 
+{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* Modern font */
+    color: #ffffff !important; /* Beyaz renk */
+}
+
+/* Desktop Navbar Linkleri */
+.navbar-modern .nav-link {
+    font-size: 0.875rem; 
+    font-weight: 500; 
+    padding: 0.5rem 0.75rem; 
+    border-radius: 0.375rem; 
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.navbar-modern .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* Beyaz hover arka planı (%15 Opaklık) */
+    text-decoration: none;
+}
+
+/* Auth Butonları (Dark Theme) */
+.btn-dark-modern {
+    background-color: #e2e8f0; 
+    color: #1e293b !important; /* Koyu metin rengi korundu */
+    border-color: #e2e8f0;
+}
+
+.btn-dark-modern:hover {
+    background-color: #f1f5f9; 
+    border-color: #f1f5f9;
+    color: #1e293b !important;
+}
+
+.btn-ghost {
+    background-color: transparent;
+    border-color: transparent;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.btn-ghost:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* Beyaz hover arka planı (%15 Opaklık) */
+}
+
+/* Bootstrap Buton Boyutları ile Uyum */
+.btn-sm.btn-dark-modern, .btn-sm.btn-ghost {
+    padding: 0.25rem 0.75rem; /* Shadcn sm buton padding'ine benzer */
+    font-size: 0.875rem;
+}
+
+/* Navbar Kullanıcı Adı Stili */
+.navbar-username {
+    font-weight: 500; 
+}
+
+.navbar-username i {
+     color: #ffffff !important; /* İkon da beyaz */
+     vertical-align: middle; 
+}
+
+/* Çıkış Yap İkonu Rengi */
+.logout-icon {
+    color: #ffffff !important; /* İkon da beyaz */
+}
+
+/* Mobile Offcanvas (Dark Theme) */
+.offcanvas {
+     background-color: #0f172a; /* Koyu arka plan (slate-900) */
+     color: #cbd5e1; /* Açık Gri Metin */
+}
+
+.offcanvas-header {
+    border-color: rgba(51, 65, 85, 0.5) !important; /* Yarı saydam border (slate-700) */
+}
+
+.offcanvas-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%); /* Kapatma butonunu beyaz yap */
+}
+
+.offcanvas-body .nav-link {
+     padding: 0.5rem 0.25rem; 
+     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* Modern font */
+     color: #ffffff !important; /* Beyaz renk */
+     font-size: 1rem; /* Biraz daha büyük */
+     font-weight: 500;
+}
+
+.offcanvas-body .nav-link:hover {
+     background-color: rgba(255, 255, 255, 0.15); /* Beyaz hover */
+     border-radius: 0.375rem;
+}
+
+offcanvas-body hr {
+    border-color: rgba(51, 65, 85, 0.5);
+}
+
+/* === Register/Login Page Styles (Dark Theme) === */
+.auth-container {
+    display: grid;
+    min-height: calc(100vh - 50px - 180px); 
+    width: 100%;
+    max-width: 100%; 
+    margin-left: auto; 
+    margin-right: auto;
+    padding-left: 0; 
+    padding-right: 0;
+}
+
+.auth-form-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: transparent; 
+    overflow-y: auto; 
+}
+
+.auth-image-section {
+    display: none; /* Küçük ekranlarda gizle (Tekrar eklendi) */
+    align-items: center;
+    justify-content: center;
+    background-image: url('/images/register-bg.jpg') !important; /* Görsel yolu tekrar eklendi ve !important */
+    background-size: cover;
+    background-position: center;
+    padding: 0; /* Padding 0 olmalıydı */
+    /* background-color: #1e293b; */ /* Koyu renk kaldırıldı/yorumlandı */
+    /* border-left-color: rgba(51, 65, 85, 0.5); */ /* Kenarlık kaldırıldı */
+}
+
+@media (min-width: 992px) { /* lg breakpoint */
+    .auth-image-section {
+        display: flex; /* Orta/Büyük ekranlarda göster (Tekrar eklendi) */
+    }
+    .auth-container {
+        grid-template-columns: repeat(2, 1fr); /* Media query buraya taşındı */
+    }
+}
+
+.auth-form-section .form-header {
+    text-align: left;
+    margin-bottom: 2.5rem; /* Başlık ile form arasına boşluk artırıldı */
+}
+
+.auth-form-section .form-header .logo {
+    color: #f1f5f9; /* Açık Gri */
+}
+
+.auth-form-section .form-header .tabs {
+    border-bottom-color: rgba(51, 65, 85, 0.5); /* Yarı saydam border */
+}
+
+.auth-form-section .form-header .tabs a {
+    color: #94a3b8; /* Daha açık gri (slate-400) */
+}
+
+.auth-form-section .form-header .tabs a:hover {
+     color: #e2e8f0; /* Hover açık gri (slate-200) */
+}
+
+.auth-form-section .form-header .tabs a.active {
+    color: #f1f5f9; /* Aktif açık gri */
+    border-bottom-color: #f1f5f9;
+}
+
+.form-group {
+    margin-bottom: 1.25rem; /* Alanlar arası boşluk azaltıldı */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem; /* Etiket altı boşluğu standart */
+    font-weight: 500;
+    font-size: 0.875rem; /* Font boyutunu biraz artırdım (sm) */
+    color: #4b5563; /* Orta/Koyu Gri (gray-600) */
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.65rem 0.75rem; /* Padding güncel */
+    font-size: 0.875rem; /* Font boyutunu biraz artırdım (sm) */
+    line-height: 1.5;
+    color: #1f2937; 
+    background-color: #ffffff; 
+    background-clip: padding-box;
+    border: 1px solid #d1d5db; 
+    appearance: none; 
+    border-radius: 0.375rem; 
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    box-shadow: none; 
+}
+
+.form-control::placeholder {
+    color: #9ca3af; /* Placeholder (gray-400) */
+}
+
+.form-control:focus {
+    color: #1f2937;
+    background-color: #ffffff;
+    border-color: #9ca3af; /* Odak Kenarlık (gray-400) */
+    box-shadow: 0 0 0 0.2rem rgba(209, 213, 219, 0.25); /* Odak Gölge (gray-300 %25) */
+}
+
+select.form-control {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M4 6l4 4 4-4'/%3e%3c/svg%3e"); /* Ok rengi (gray-500) */
+}
+
+.btn-primary { /* Ana buton */
+    color: #ffffff; 
+    background-color: #1f2937; /* Koyu Gri/Mavi Buton */
+    border-color: #1f2937; 
+    padding: 0.75rem; /* Buton paddingini biraz artırabiliriz */
+    font-size: 0.9rem; /* Buton yazı boyutu */
+}
+
+.btn-primary:hover {
+    background-color: #374151; /* Orta Gri Hover */
+    border-color: #374151;
+    color: #ffffff;
+}
+
+.or-separator {
+    text-align: center;
+    margin: 2rem 0; /* Üst/Alt boşluğu artırdım */
+    color: #6b7280; 
+    font-size: 0.75rem; 
+    font-weight: 500;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.or-separator::before,
+.or-separator::after {
+    content: '';
+    display: inline-block;
+    width: 38%; 
+    height: 1px;
+    background-color: #e2e8f0; /* Açık tema çizgi rengi */
+    vertical-align: middle;
+    margin: 0 8px;
+}
+
+.social-btn {
+    width: 100%;
+    margin-bottom: 1rem; /* Sosyal butonlar arası boşluğu artırdım */
+    padding: 0.75rem; /* Padding güncel */
+    border: 1px solid #d1d5db; 
+    background-color: #ffffff; 
+    color: #374151; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.9rem; /* Yazı boyutu güncel */
+    font-weight: 500;
+    border-radius: 0.375rem;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.social-btn:hover {
+    background-color: #f9fafb; /* Çok Açık Gri Hover */
+    border-color: #9ca3af; 
+    color: #1f2937; 
+}
+
+.social-btn img {
+    height: 16px; /* İkon boyutu */
+}
+
+/* Validation message */
+.text-danger {
+    color: #dc3545; /* Bootstrap Varsayılan Kırmızı */
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
@@ -29,3 +351,161 @@ body {
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
 }
+
+
+/* === New Footer Styles === */
+
+.footer-section {
+    background-color: #f8fafc !important; /* Açık Arka Plan (slate-50) */
+    border-top-color: #e2e8f0 !important; /* Açık Kenarlık (slate-200) */
+}
+
+.footer-logo a {
+    color: #1f2937; /* Koyu Metin */
+}
+
+.footer-heading {
+    color: #4b5563; /* Orta/Koyu Gri (gray-600) */
+}
+
+.footer-tagline {
+     color: #6b7280 !important; /* Orta Gri (gray-500) */
+}
+
+.footer-links a,
+.footer-bottom-links a {
+    color: #6b7280; /* Orta Gri */
+}
+
+.footer-links a:hover,
+.footer-bottom-links a:hover {
+    color: #1f2937; /* Koyu Gri Hover */
+}
+
+.footer-bottom-row {
+     border-top-color: #e2e8f0 !important; /* Açık Kenarlık */
+}
+
+.footer-bottom-row p {
+      color: #6b7280 !important; /* Orta Gri */
+}
+
+/* === End New Footer Styles === */
+
+/* === Navbar Styles (shadcn/ui inspired) === */
+
+/* Genel Navbar Ayarları */
+.navbar-modern .container {
+    /* Bootstrap container padding'ini kaldırabilir veya ayarlayabiliriz */
+    /* max-width: 1280px; /* Örnek maksimum genişlik */
+}
+
+header.bg-background {
+     background-color: #ffffff !important; /* shadcn background rengi */
+}
+
+.navbar-logo-img {
+    max-height: 35px; /* Logo yüksekliği - Ayarlanabilir */
+}
+
+.navbar-logo-text {
+    font-size: 1.125rem; 
+    font-weight: 600; /* font-semibold */
+    letter-spacing: -0.025em; /* tracking-tighter */
+    color: #1a202c; /* text-foreground gibi */
+}
+
+/* Desktop Navbar Linkleri */
+.navbar-modern .nav-link {
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    color: #4a5568; /* text-muted-foreground gibi */
+    padding: 0.5rem 0.75rem; /* px-3 py-2 */
+    border-radius: 0.375rem; /* rounded-md */
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.navbar-modern .nav-link:hover {
+    color: #1a202c; /* text-accent-foreground gibi */
+    background-color: #f1f5f9; /* bg-muted */
+    text-decoration: none;
+}
+
+/* Auth Butonları (Genel) */
+.btn-dark-modern {
+    background-color: #1a202c; /* Koyu gri */
+    color: #ffffff;
+    border: 1px solid #1a202c;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.btn-dark-modern:hover {
+    background-color: #2d3748; /* Biraz daha açık koyu gri */
+    border-color: #2d3748;
+    color: #ffffff;
+}
+
+.btn-ghost {
+    background-color: transparent;
+    color: #4a5568; /* Orta gri */
+    border-color: transparent;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.btn-ghost:hover {
+    background-color: #f1f5f9; /* Açık gri hover */
+    color: #1a202c; /* Koyu gri metin hover */
+}
+
+/* Bootstrap Buton Boyutları ile Uyum */
+.btn-sm.btn-dark-modern, .btn-sm.btn-ghost {
+    padding: 0.25rem 0.75rem; /* Shadcn sm buton padding'ine benzer */
+    font-size: 0.875rem;
+}
+
+/* Navbar Kullanıcı Adı Stili */
+.navbar-username {
+    /* font-family: 'Inter', sans-serif; */ 
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; 
+    font-weight: 500; 
+    color: #94a3b8 !important; 
+}
+
+.navbar-username i {
+    /* İkon rengini metinle aynı yapabiliriz veya farklı */
+     color: #233142 !important; /* İstenen renk */
+     vertical-align: middle; 
+}
+
+/* Çıkış Yap İkonu Rengi */
+.logout-icon {
+    color: #233142 !important; /* İstenen renk */
+}
+
+/* Mobile Offcanvas */
+.offcanvas {
+     background-color: #ffffff; /* bg-background */
+}
+
+.offcanvas-header {
+    border-color: #e2e8f0 !important; /* border */
+}
+
+.offcanvas-body .nav-link {
+     color: #1a202c; /* text-foreground gibi */
+     padding: 0.5rem 0.25rem; /* Daha az yan padding */
+}
+
+.offcanvas-body .nav-link:hover {
+     background-color: #f1f5f9; /* bg-muted */
+     border-radius: 0.375rem;
+}
+
+/* Formu saran ve boyutlandıran stil - TEKRAR EKLENDİ */
+.form-content-wrapper {
+    width: 100%; 
+    max-width: 400px; /* Form genişliği küçültüldü */
+}
+
+/* === End Navbar Styles === */
+/* === End Navbar Styles === */
