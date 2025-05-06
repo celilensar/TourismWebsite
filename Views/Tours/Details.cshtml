@@ -1,0 +1,66 @@
+@model TourismWebsite.Models.Tour
+
+@{ ViewData["Title"] = Model.Name + " - Tur Detayları"; }
+
+<div>
+    <h1>@Model.Name</h1>
+    <hr />
+
+    <div class="row">
+        <div class="col-md-6">
+            @if (!string.IsNullOrEmpty(Model.ImageUrl))
+            {
+                <img src="@Model.ImageUrl" class="img-fluid rounded" alt="@Model.Name">
+            }
+            else
+            {
+                <img src="/images/default-tour-image.jpg" class="img-fluid rounded" alt="Varsayılan Tur Resmi"> // Varsayılan resim yolu
+            }
+        </div>
+        <div class="col-md-6">
+            <dl class="row">
+                <dt class="col-sm-4">Destinasyon:</dt>
+                <dd class="col-sm-8">@Model.Destination.Name</dd>
+
+                <dt class="col-sm-4">Süre:</dt>
+                <dd class="col-sm-8">@Model.DurationDays gün</dd>
+
+                <dt class="col-sm-4">Başlangıç Tarihi:</dt>
+                <dd class="col-sm-8">@Model.StartDate.ToShortDateString()</dd>
+
+                <dt class="col-sm-4">Bitiş Tarihi:</dt>
+                <dd class="col-sm-8">@Model.EndDate.ToShortDateString()</dd>
+
+                <dt class="col-sm-4">Kontenjan:</dt>
+                <dd class="col-sm-8">@Model.Capacity kişi</dd>
+
+                <dt class="col-sm-4">Fiyat:</dt>
+                <dd class="col-sm-8"><strong>@Model.Price.ToString("C")</strong></dd>
+            </dl>
+            @* İleride buraya "Sepete Ekle" butonu veya rezervasyon formu eklenebilir *@
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <h4>Tur Açıklaması</h4>
+        <p>@Html.Raw(Model.Description?.Replace(Environment.NewLine, "<br />"))</p> @* Satır sonlarını <br> ile değiştirir *@
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.Itinerary))
+    {
+        <div class="mt-4">
+            <h4>Tur Programı (Güzergah)</h4>
+            <p>@Html.Raw(Model.Itinerary.Replace(Environment.NewLine, "<br />"))</p> @* Satır sonlarını <br> ile değiştirir *@
+        </div>
+    }
+
+</div>
+<hr />
+<div>
+    <a asp-action="Index" class="btn btn-outline-secondary">Tüm Turlara Geri Dön</a>
+    @* Admin ise düzenleme linki eklenebilir ileride *@
+    @* @if (User.IsInRole("Admin")) *@
+    @* { *@
+    @*     <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Düzenle (Admin)</a> *@
+    @* } *@
+</div> 

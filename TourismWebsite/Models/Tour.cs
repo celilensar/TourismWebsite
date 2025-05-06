@@ -25,6 +25,19 @@ namespace TourismWebsite.Models
 
         public string? ImageUrl { get; set; } // Nullable string
 
+        [Required(ErrorMessage = "Başlangıç tarihi gereklidir.")]
+        [DataType(DataType.Date)]
+        public DateTime StartDate { get; set; }
+
+        [Required(ErrorMessage = "Bitiş tarihi gereklidir.")]
+        [DataType(DataType.Date)]
+        // Custom validation for EndDate > StartDate might be needed, often handled in ViewModel or service layer
+        public DateTime EndDate { get; set; }
+
+        [Required(ErrorMessage = "Kontenjan gereklidir.")]
+        [Range(1, int.MaxValue, ErrorMessage = "Kontenjan en az 1 olmalıdır.")]
+        public int Capacity { get; set; }
+
         // Foreign Key
         [Required(ErrorMessage = "Lütfen bir destinasyon seçin.")]
         public int DestinationId { get; set; }

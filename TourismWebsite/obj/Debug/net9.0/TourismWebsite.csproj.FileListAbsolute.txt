@@ -378,7 +378,6 @@ D:\TourismWebsite\TourismWebsite\obj\Debug\net9.0\TourismWebsite.sourcelink.json
 D:\TourismWebsite\TourismWebsite\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\TourismWebsite\TourismWebsite\obj\Debug\net9.0\scopedcss\bundle\TourismWebsite.styles.css
 D:\TourismWebsite\TourismWebsite\obj\Debug\net9.0\scopedcss\projectbundle\TourismWebsite.bundle.scp.css
-D:\TourismWebsite\TourismWebsite\obj\Debug\net9.0\compressed\0anhb3imx1-b9sayid5wm.gz
 D:\TourismWebsite\TourismWebsite\obj\Debug\net9.0\compressed\roash5c7wf-61n19gt1b8.gz
 D:\TourismWebsite\TourismWebsite\obj\Debug\net9.0\compressed\85414nitdn-xtxxf3hu2r.gz
 D:\TourismWebsite\TourismWebsite\obj\Debug\net9.0\compressed\q1f4ejzzta-t1cqhe9u97.gz
@@ -692,3 +691,4 @@ C:\Users\ensar\Documents\codes\Tour\TourismWebsite\obj\Debug\net9.0\TourismWebsi
 C:\Users\ensar\Documents\codes\Tour\TourismWebsite\obj\Debug\net9.0\TourismWebsite.genruntimeconfig.cache
 C:\Users\ensar\Documents\codes\Tour\TourismWebsite\obj\Debug\net9.0\ref\TourismWebsite.dll
 C:\Users\ensar\Documents\codes\Tour\TourismWebsite\obj\Debug\net9.0\compressed\0anhb3imx1-uhyrd45qfk.gz
+D:\TourismWebsite\TourismWebsite\obj\Debug\net9.0\compressed\0anhb3imx1-tujg6xejuz.gz

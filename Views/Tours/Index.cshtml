@@ -1,0 +1,50 @@
+@model IEnumerable<TourismWebsite.Models.Tour>
+
+@{ ViewData["Title"] = "Turlarımız"; }
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    @if (!Model.Any())
+    {
+        <div class="col">
+            <p>Gösterilecek tur bulunamadı.</p>
+        </div>
+    }
+    else
+    {
+        foreach (var tour in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    @if (!string.IsNullOrEmpty(tour.ImageUrl))
+                    {
+                        <img src="@tour.ImageUrl" class="card-img-top" alt="@tour.Name" style="height: 200px; object-fit: cover;">
+                    }
+                    else
+                    {
+                        <img src="/images/default-tour-image.jpg" class="card-img-top" alt="Varsayılan Tur Resmi" style="height: 200px; object-fit: cover;"> // Varsayılan resim yolu
+                    }
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">@tour.Name</h5>
+                        <p class="card-text"><small class="text-muted">@tour.Destination.Name</small></p>
+                        <p class="card-text"><strong>Fiyat:</strong> @tour.Price.ToString("C")</p>
+                        <p class="card-text"><strong>Süre:</strong> @tour.DurationDays gün</p>
+                        <p class="card-text"><strong>Başlangıç:</strong> @tour.StartDate.ToShortDateString()</p>
+                        <p class="card-text"><strong>Bitiş:</strong> @tour.EndDate.ToShortDateString()</p>
+                        <div class="mt-auto">
+                            <a asp-action="Details" asp-route-id="@tour.Id" class="btn btn-primary">Detayları Gör</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>
+
+@* Opsiyonel: Basit bir stil ekleyebiliriz *@
+<style>
+    .card-title {
+        min-height: 40px; /* Kart başlıklarının aynı hizada kalmasına yardımcı olur */
+    }
+</style> 
