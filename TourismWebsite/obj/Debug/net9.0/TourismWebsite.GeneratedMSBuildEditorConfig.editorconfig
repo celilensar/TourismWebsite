@@ -17,57 +17,57 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TourismWebsite
 build_property.RootNamespace = TourismWebsite
-build_property.ProjectDir = D:\TourismWebsite\TourismWebsite\
+build_property.ProjectDir = d:\TourismWebsite\TourismWebsite\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 9.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\TourismWebsite\TourismWebsite
+build_property.MSBuildProjectDirectory = d:\TourismWebsite\TourismWebsite
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/TourismWebsite/TourismWebsite/Views/Account/Login.cshtml]
+[d:/TourismWebsite/TourismWebsite/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/TourismWebsite/TourismWebsite/Views/Account/Register.cshtml]
+[d:/TourismWebsite/TourismWebsite/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/TourismWebsite/TourismWebsite/Views/Destinations/Create.cshtml]
+[d:/TourismWebsite/TourismWebsite/Views/Destinations/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/TourismWebsite/TourismWebsite/Views/Destinations/Index.cshtml]
+[d:/TourismWebsite/TourismWebsite/Views/Destinations/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVzdGluYXRpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/TourismWebsite/TourismWebsite/Views/Home/Index.cshtml]
+[d:/TourismWebsite/TourismWebsite/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/TourismWebsite/TourismWebsite/Views/Home/Privacy.cshtml]
+[d:/TourismWebsite/TourismWebsite/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/TourismWebsite/TourismWebsite/Views/Shared/Error.cshtml]
+[d:/TourismWebsite/TourismWebsite/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/TourismWebsite/TourismWebsite/Views/Shared/_ValidationScriptsPartial.cshtml]
+[d:/TourismWebsite/TourismWebsite/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/TourismWebsite/TourismWebsite/Views/_ViewImports.cshtml]
+[d:/TourismWebsite/TourismWebsite/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/TourismWebsite/TourismWebsite/Views/_ViewStart.cshtml]
+[d:/TourismWebsite/TourismWebsite/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/TourismWebsite/TourismWebsite/Views/Shared/_Layout.cshtml]
+[d:/TourismWebsite/TourismWebsite/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ite2w913r7
