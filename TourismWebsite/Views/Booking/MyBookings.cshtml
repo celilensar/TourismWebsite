@@ -1,0 +1,129 @@
+@model IEnumerable<TourismWebsite.Models.Booking>
+
+@{
+    ViewData["Title"] = "Rezervasyonlarım";
+}
+
+<h1>Rezervasyonlarım</h1>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        Henüz hiç rezervasyonunuz bulunmamaktadır.
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Tur</th>
+                    <th>Kişi Sayısı</th>
+                    <th>Toplam Fiyat</th>
+                    <th>Rezervasyon Tarihi</th>
+                    <th>Durum</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var booking in Model)
+                {
+                    <tr>
+                        <td>@booking.Tour.Name</td>
+                        <td>@booking.NumberOfPeople</td>
+                        <td>@booking.TotalPrice.ToString("C")</td>
+                        <td>@booking.BookingDate.ToShortDateString()</td>
+                        <td>
+                            @switch (booking.Status)
+                            {
+                                case "Pending":
+                                    <span class="badge bg-warning">Onay Bekliyor</span>
+                                    break;
+                                case "Approved":
+                                    <span class="badge bg-info">Ödeme Bekliyor</span>
+                                    break;
+                                case "Paid":
+                                    <span class="badge bg-success">Ödendi</span>
+                                    break;
+                                case "Cancelled":
+                                    <span class="badge bg-danger">İptal Edildi</span>
+                                    break;
+                            }
+                        </td>
+                        <td>
+                            @if (booking.Status == "Pending")
+                            {
+                                <form asp-action="Cancel" method="post" style="display: inline;">
+                                    <input type="hidden" name="id" value="@booking.Id" />
+                                    <button type="submit" class="btn btn-danger btn-sm" 
+                                            onclick="return confirm('Rezervasyonu iptal etmek istediğinizden emin misiniz?')">
+                                        İptal Et
+                                    </button>
+                                </form>
+                            }
+                            else if (booking.Status == "Approved")
+                            {
+                                <button type="button" class="btn btn-primary btn-sm" 
+                                        data-bs-toggle="modal" data-bs-target="#paymentModal@(booking.Id)">
+                                    Ödeme Yap
+                                </button>
+
+                                <!-- Ödeme Modal -->
+                                <div class="modal fade" id="paymentModal@(booking.Id)" tabindex="-1">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Ödeme Yap</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form asp-action="Pay" method="post">
+                                                    <input type="hidden" name="id" value="@booking.Id" />
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Ödeme Kartı Seçin</label>
+                                                        <select name="cardId" class="form-select" required>
+                                                            @foreach (var card in ViewBag.UserCards)
+                                                            {
+                                                                <option value="@card.Id">
+                                                                    @card.CardNumber.Substring(card.CardNumber.Length - 4) - 
+                                                                    @card.CardHolderName
+                                                                </option>
+                                                            }
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <p>Ödenecek Tutar: <strong>@booking.TotalPrice.ToString("C")</strong></p>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Ödemeyi Tamamla</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+<div>
+    <a asp-controller="Tours" asp-action="Index" class="btn btn-outline-secondary">Tüm Turlara Geri Dön</a>
+</div> 
