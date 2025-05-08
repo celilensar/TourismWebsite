@@ -691,7 +691,6 @@ C:\Users\ensar\Documents\codes\Tour\TourismWebsite\obj\Debug\net9.0\TourismWebsi
 C:\Users\ensar\Documents\codes\Tour\TourismWebsite\obj\Debug\net9.0\TourismWebsite.genruntimeconfig.cache
 C:\Users\ensar\Documents\codes\Tour\TourismWebsite\obj\Debug\net9.0\ref\TourismWebsite.dll
 C:\Users\ensar\Documents\codes\Tour\TourismWebsite\obj\Debug\net9.0\compressed\0anhb3imx1-uhyrd45qfk.gz
-D:\TourismWebsite\TourismWebsite\obj\Debug\net9.0\compressed\0anhb3imx1-tujg6xejuz.gz
 C:\Users\emree\OneDrive\Desktop\TourismWebsite\TourismWebsite\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\emree\OneDrive\Desktop\TourismWebsite\TourismWebsite\bin\Debug\net9.0\appsettings.json
 C:\Users\emree\OneDrive\Desktop\TourismWebsite\TourismWebsite\bin\Debug\net9.0\TourismWebsite.staticwebassets.runtime.json
@@ -924,3 +923,4 @@ C:\Users\emree\OneDrive\Desktop\TourismWebsite\TourismWebsite\obj\Debug\net9.0\T
 C:\Users\emree\OneDrive\Desktop\TourismWebsite\TourismWebsite\obj\Debug\net9.0\ref\TourismWebsite.dll
 C:\Users\emree\OneDrive\Desktop\TourismWebsite\TourismWebsite\obj\Debug\net9.0\compressed\85414nitdn-fr7q2aak1r.gz
 C:\Users\emree\OneDrive\Desktop\TourismWebsite\TourismWebsite\obj\Debug\net9.0\compressed\0anhb3imx1-yjnewyvt31.gz
+D:\TourismWebsite\TourismWebsite\obj\Debug\net9.0\compressed\0anhb3imx1-yjnewyvt31.gz
