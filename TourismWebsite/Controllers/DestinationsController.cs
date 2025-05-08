@@ -27,39 +27,50 @@ namespace TourismWebsite.Controllers
         // GET: Destinations/Create
         public IActionResult Create()
         {
-            // Admin kontrolü
+            // Önce session kontrolü
+            if (HttpContext.Session.GetString("UserEmail") == null)
+            {
+                TempData.Clear(); // TempData'yı temizle
+                return RedirectToAction("Login", "Account");
+            }
+
+            // Sonra admin kontrolü
             if (HttpContext.Session.GetString("IsAdmin") != "True")
             {
-                // Admin değilse ana sayfaya yönlendir (veya bir hata mesajı göster)
                 TempData["ErrorMessage"] = "Bu işlem için yetkiniz yok.";
                 return RedirectToAction("Index", "Home");
             }
             
-            // Admin ise boş formu göster
             return View();
         }
 
         // POST: Destinations/Create
         [HttpPost]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,ImageUrl")] Destination destination) // Bind ile sadece beklenen alanları al
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,ImageUrl")] Destination destination)
         {
-            // Admin kontrolü
+            // Önce session kontrolü
+            if (HttpContext.Session.GetString("UserEmail") == null)
+            {
+                TempData.Clear(); // TempData'yı temizle
+                return RedirectToAction("Login", "Account");
+            }
+
+            // Sonra admin kontrolü
             if (HttpContext.Session.GetString("IsAdmin") != "True")
             {
                 TempData["ErrorMessage"] = "Bu işlem için yetkiniz yok.";
                 return RedirectToAction("Index", "Home");
             }
 
-            if (ModelState.IsValid) // Model validasyonları geçerli mi?
+            if (ModelState.IsValid)
             {
                 _context.Add(destination);
-                await _context.SaveChangesAsync(); // Değişiklikleri veritabanına kaydet
+                await _context.SaveChangesAsync();
                 
-                TempData["SuccessMessage"] = "Destinasyon başarıyla eklendi."; // Başarı mesajı
-                return RedirectToAction(nameof(Index)); // Index aksiyonuna yönlendir
+                TempData["SuccessMessage"] = "Destinasyon başarıyla eklendi.";
+                return RedirectToAction(nameof(Index));
             }
             
-            // Model geçerli değilse, formu hatalarla birlikte tekrar göster
             return View(destination);
         }
 

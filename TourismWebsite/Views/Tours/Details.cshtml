@@ -1,6 +1,9 @@
 @model TourismWebsite.ViewModels.TourDetailViewModel
 
-@{ ViewData["Title"] = Model.Name + " - Tur Detayları"; }
+@{ 
+    ViewData["Title"] = Model.Name + " - Tur Detayları";
+    var isAdmin = Context.Session.GetString("IsAdmin") == "True";
+}
 
 <div>
     <h1>@Model.Name</h1>
@@ -37,7 +40,32 @@
                 <dt class="col-sm-4">Fiyat:</dt>
                 <dd class="col-sm-8"><strong>@Model.Price.ToString("C")</strong></dd>
             </dl>
-            @* İleride buraya "Sepete Ekle" butonu veya rezervasyon formu eklenebilir *@
+
+            @if (Context.Session.GetInt32("UserId") != null && !isAdmin)
+            {
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Rezervasyon Yap</h5>
+                        <form asp-controller="Booking" asp-action="Create" method="post">
+                            <input type="hidden" name="tourId" value="@Model.Id" />
+                            <div class="form-group">
+                                <label for="numberOfPeople">Kişi Sayısı:</label>
+                                <input type="number" class="form-control" id="numberOfPeople" name="numberOfPeople" 
+                                       min="1" max="@Model.Capacity" value="1" required>
+                            </div>
+                            <div class="mt-3">
+                                <button type="submit" class="btn btn-primary">Rezervasyon Yap</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            }
+            else if (Context.Session.GetInt32("UserId") == null)
+            {
+                <div class="alert alert-info mt-3">
+                    Rezervasyon yapmak için lütfen <a asp-controller="Account" asp-action="Login">giriş yapın</a>.
+                </div>
+            }
         </div>
     </div>
 
