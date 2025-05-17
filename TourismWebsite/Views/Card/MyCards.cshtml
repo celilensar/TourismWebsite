@@ -1,0 +1,60 @@
+@model IEnumerable<TourismWebsite.Models.Card>
+
+@{
+    ViewData["Title"] = "Kartlarım";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h2>Kartlarım</h2>
+            <hr />
+
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success">
+                    @TempData["SuccessMessage"]
+                </div>
+            }
+
+            <div class="mb-3">
+                <a asp-action="Add" class="btn btn-primary">
+                    <i class="fas fa-plus"></i> Yeni Kart Ekle
+                </a>
+            </div>
+
+            @if (!Model.Any())
+            {
+                <div class="alert alert-info">
+                    Henüz kayıtlı kartınız bulunmamaktadır.
+                </div>
+            }
+            else
+            {
+                <div class="row">
+                    @foreach (var card in Model)
+                    {
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">@card.CardHolderName</h5>
+                                    <p class="card-text">
+                                        <strong>Kart No:</strong> **** **** **** @card.CardNumber.Substring(12)<br />
+                                        <strong>Son Kullanma:</strong> @card.ExpiryDate
+                                    </p>
+                                    <form asp-action="Delete" asp-route-id="@card.Id" method="post" 
+                                          onsubmit="return confirm('Bu kartı silmek istediğinizden emin misiniz?');">
+                                        @Html.AntiForgeryToken()
+                                        <button type="submit" class="btn btn-danger">
+                                            <i class="fas fa-trash"></i> Sil
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div> 

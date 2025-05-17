@@ -69,8 +69,8 @@ namespace TourismWebsite.Controllers
         [HttpGet]
         public IActionResult Login(string returnUrl = null)
         {
-            // Kayıt sonrası yönlendirmeden gelen başarı mesajını alıp ViewData'ya aktaralım
-            if (TempData["SuccessMessage"] != null)
+            // Sadece kayıt başarılı mesajını göster
+            if (TempData["SuccessMessage"] != null && TempData["SuccessMessage"].ToString().Contains("kayıt oldunuz"))
             {
                 ViewData["SuccessMessage"] = TempData["SuccessMessage"];
             }
@@ -132,5 +132,50 @@ namespace TourismWebsite.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public IActionResult Profile()
+        {
+            var userEmail = HttpContext.Session.GetString("UserEmail");
+            if (string.IsNullOrEmpty(userEmail))
+            {
+                return RedirectToAction("Login");
+            }
+
+            var user = _context.Users.FirstOrDefault(u => u.Email == userEmail);
+            if (user == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            return View(user);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateProfile(User model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Profile", model);
+            }
+
+            var user = _context.Users.FirstOrDefault(u => u.Email == model.Email);
+            if (user == null)
+            {
+                return RedirectToAction("Login");
+            }
+
+            user.Name = model.Name;
+            user.Surname = model.Surname;
+            user.PhoneNumber = model.PhoneNumber;
+            user.Address = model.Address;
+            user.Age = model.Age;
+            user.Gender = model.Gender;
+
+            _context.SaveChanges();
+
+            HttpContext.Session.SetString("UserName", $"{user.Name} {user.Surname}");
+
+            TempData["SuccessMessage"] = "Profil bilgileriniz başarıyla güncellendi.";
+            return RedirectToAction("Profile");
+        }
     }
 } 

@@ -9,16 +9,24 @@ namespace TourismWebsite.Data
         {
         }
 
-        public DbSet<User> Users { get; set; }
-        public DbSet<Destination> Destinations { get; set; }
-        public DbSet<Tour> Tours { get; set; }
+        public DbSet<User> Users { get; set; } = null!;
+        public DbSet<Destination> Destinations { get; set; } = null!;
+        public DbSet<Tour> Tours { get; set; } = null!;
+        public DbSet<Card> Cards { get; set; } = null!;
+        public DbSet<Booking> Bookings { get; set; } = null!;
 
-        // İleride modeller arasında daha detaylı yapılandırma (fluent API) 
-        // yapmak istersek OnModelCreating metodunu override edebiliriz.
-        // protected override void OnModelCreating(ModelBuilder modelBuilder)
-        // {
-        //     base.OnModelCreating(modelBuilder);
-        //     // Örneğin: modelBuilder.Entity<Tour>().Property(t => t.Price).HasColumnType("decimal(18,2)");
-        // }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            
+            // Decimal hassasiyeti ayarları
+            modelBuilder.Entity<Booking>()
+                .Property(b => b.TotalPrice)
+                .HasPrecision(18, 2);
+
+            modelBuilder.Entity<Tour>()
+                .Property(t => t.Price)
+                .HasPrecision(18, 2);
+        }
     }
 } 

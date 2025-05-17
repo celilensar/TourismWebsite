@@ -1,0 +1,97 @@
+@model IEnumerable<TourismWebsite.Models.Booking>
+
+@{
+    ViewData["Title"] = "Tüm Rezervasyonlar";
+}
+
+<h1>Tüm Rezervasyonlar</h1>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        Henüz hiç rezervasyon bulunmamaktadır.
+    </div>
+}
+else
+{
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Kullanıcı</th>
+                    <th>Tur</th>
+                    <th>Kişi Sayısı</th>
+                    <th>Toplam Fiyat</th>
+                    <th>Rezervasyon Tarihi</th>
+                    <th>Durum</th>
+                    <th>İşlemler</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var booking in Model)
+                {
+                    <tr>
+                        <td>@booking.User.Name @booking.User.Surname</td>
+                        <td>@booking.Tour.Name</td>
+                        <td>@booking.NumberOfPeople</td>
+                        <td>@booking.TotalPrice.ToString("C")</td>
+                        <td>@booking.BookingDate.ToShortDateString()</td>
+                        <td>
+                            @switch (booking.Status)
+                            {
+                                case "Pending":
+                                    <span class="badge bg-warning">Onay Bekliyor</span>
+                                    break;
+                                case "Approved":
+                                    <span class="badge bg-info">Ödeme Bekliyor</span>
+                                    break;
+                                case "Paid":
+                                    <span class="badge bg-success">Ödendi</span>
+                                    break;
+                                case "Cancelled":
+                                    <span class="badge bg-danger">İptal Edildi</span>
+                                    break;
+                            }
+                        </td>
+                        <td>
+                            @if (booking.Status == "Pending")
+                            {
+                                <form asp-action="Approve" method="post" style="display: inline;">
+                                    <input type="hidden" name="id" value="@booking.Id" />
+                                    <button type="submit" class="btn btn-success btn-sm">
+                                        Onayla
+                                    </button>
+                                </form>
+                                <form asp-action="Reject" method="post" style="display: inline;">
+                                    <input type="hidden" name="id" value="@booking.Id" />
+                                    <button type="submit" class="btn btn-danger btn-sm" 
+                                            onclick="return confirm('Rezervasyonu reddetmek istediğinizden emin misiniz?')">
+                                        Reddet
+                                    </button>
+                                </form>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+<div>
+    <a asp-controller="Tours" asp-action="Index" class="btn btn-outline-secondary">Tüm Turlara Geri Dön</a>
+</div> 

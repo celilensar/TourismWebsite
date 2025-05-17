@@ -1,0 +1,74 @@
+@model TourismWebsite.Models.Card
+
+@{
+    ViewData["Title"] = "Yeni Kart Ekle";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="card-title">Yeni Kart Ekle</h2>
+                    <hr />
+
+                    <form asp-action="Add" method="post">
+                        @Html.AntiForgeryToken()
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="CardHolderName" class="control-label">Kart Sahibi Adı</label>
+                            <input asp-for="CardHolderName" class="form-control" />
+                            <span asp-validation-for="CardHolderName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="CardNumber" class="control-label">Kart Numarası</label>
+                            <input asp-for="CardNumber" class="form-control" maxlength="16" 
+                                   oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+                            <span asp-validation-for="CardNumber" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="ExpiryDate" class="control-label">Son Kullanma Tarihi (MM/YY)</label>
+                                    <input asp-for="ExpiryDate" class="form-control" maxlength="5" 
+                                           placeholder="MM/YY" />
+                                    <span asp-validation-for="ExpiryDate" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-3">
+                                    <label asp-for="CVV" class="control-label">CVV</label>
+                                    <input asp-for="CVV" class="form-control" maxlength="3" 
+                                           oninput="this.value = this.value.replace(/[^0-9]/g, '')" />
+                                    <span asp-validation-for="CVV" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mt-4">
+                            <button type="submit" class="btn btn-primary">Kaydet</button>
+                            <a asp-action="MyCards" class="btn btn-outline-secondary ms-2">İptal</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        // Son kullanma tarihi formatını otomatik düzenle
+        document.getElementById('ExpiryDate').addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.substring(0, 2) + '/' + value.substring(2);
+            }
+            e.target.value = value;
+        });
+    </script>
+} 
