@@ -4,40 +4,40 @@
     ViewData["Title"] = "Destinasyon Detayları"; 
 }
 
-<h1>Destinasyon Detayları</h1>
-
-<div>
-    <h4>Destinasyon</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
-        <dd class="col-sm-10">
+<div class="row justify-content-center mt-4">
+    <div class="col-md-9 col-lg-8">
+        <div class="card shadow-sm">
             @if (!string.IsNullOrEmpty(Model.ImageUrl))
             {
-                <img src="@Model.ImageUrl" alt="@Model.Name" style="max-width: 300px; max-height: 200px;" />
+                <img src="@Model.ImageUrl" class="card-img-top" alt="@Model.Name" style="max-height: 400px; object-fit: cover;">
             }
-            else
-            {
-                <span>(Resim Yok)</span>
-            }
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Düzenle</a> |
-    <a asp-action="Index" class="btn btn-secondary">Listeye Geri Dön</a>
+            <div class="card-body p-4">
+                <h3 class="card-title text-center mb-4">@Model.Name Detayları</h3>
+                <hr class="mb-4">
+                
+                <dl class="row">
+                    <dt class="col-sm-3 fw-semibold">Açıklama:</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Description)</dd>
+
+                    <dt class="col-sm-3 fw-semibold mt-2">Resim URL:</dt>
+                    <dd class="col-sm-9 mt-2"> 
+                        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                        {
+                            @Html.DisplayFor(model => model.ImageUrl)
+                        }
+                        else
+                        {
+                            <span>(Resim Belirtilmemiş)</span>
+                        }
+                    </dd>
+                </dl>
+            </div>
+            <div class="card-footer bg-light p-3">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-warning btn-lg">Düzenle</a>
+                    <a asp-action="Index" class="btn btn-outline-secondary btn-lg">Listeye Geri Dön</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div> 

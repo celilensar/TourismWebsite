@@ -10,8 +10,8 @@
             <div class="form-header">
                 <div class="logo">TourismWebsite</div>
                 <div class="tabs">
-                    <a asp-controller="Account" asp-action="Login" class="active">Log In</a>
-                    <a asp-controller="Account" asp-action="Register">Sign Up</a>
+                    <a asp-controller="Account" asp-action="Login" class="active">Giriş Yap</a>
+                    <a asp-controller="Account" asp-action="Register">Kayıt Ol</a>
                 </div>
             </div>
 
@@ -29,47 +29,47 @@
                     <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
                     <div class="form-group">
-                        <label asp-for="Email" class="control-label">Email Address</label>
-                        <input asp-for="Email" class="form-control" autocomplete="username" aria-required="true" placeholder="Enter your email address..." />
+                        <label asp-for="Email" class="control-label">E-posta Adresi</label>
+                        <input asp-for="Email" class="form-control" autocomplete="username" aria-required="true" placeholder="E-posta adresinizi girin..." />
                         <span asp-validation-for="Email" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                         <label asp-for="Password" class="control-label">Password</label>
-                         <input asp-for="Password" type="password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="Enter your password..." />
+                         <label asp-for="Password" class="control-label">Şifre</label>
+                         <input asp-for="Password" type="password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="Şifrenizi girin..." />
                          <span asp-validation-for="Password" class="text-danger"></span>
                     </div>
                     @* <div class="form-group d-flex justify-content-between align-items-center">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" asp-for="RememberMe" />
                             <label class="form-check-label" asp-for="RememberMe">
-                                @Html.DisplayNameFor(m => m.RememberMe)
+                                Beni Hatırla
                             </label>
                         </div>
-                        <a href="#">Forgot Password?</a> // Şifremi unuttum bağlantısı
+                        <a href="#">Şifremi Unuttum?</a>
                     </div> *@
 
-                    <button type="submit" class="btn btn-primary">Log In</button>
+                    <button type="submit" class="btn btn-primary">Giriş Yap</button>
 
-                    <div class="or-separator">OR</div>
+                    <div class="or-separator">VEYA</div>
 
                     <button type="button" class="btn social-btn">
                          @* Google ikonu *@
-                         <span>Continue with Google</span>
+                         <span>Google ile Devam Et</span>
                     </button>
                      <button type="button" class="btn social-btn">
                          @* Apple ikonu *@
-                         <span>Continue with Apple</span>
+                         <span>Apple ile Devam Et</span>
                      </button>
                      <button type="button" class="btn social-btn">
                          @* Wallet ikonu *@
-                         <span>Continue with Wallet</span>
+                         <span>Cüzdan ile Devam Et</span>
                      </button>
                     
                     @* Kayıt linki - isteğe bağlı, sekmelerde zaten var *
                     <div class="mt-4 text-center">
                         <p class="text-sm">
-                            Don't have an account? 
-                            <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" class="font-medium text-primary hover:underline">Sign Up</a>
+                            Hesabınız yok mu? 
+                            <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" class="font-medium text-primary hover:underline">Kayıt Ol</a>
                         </p>
                     </div> 
                     *@

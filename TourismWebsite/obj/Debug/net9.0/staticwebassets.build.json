@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+/f6P8mBgnvKUuAwfIV+QGDL39RqUJ/k/ukoj7cGltQ=",
+  "Hash": "4LWr5SQ39WcOFc6XMUerJEL6EU14ZZ1QQu1DvcP06Pk=",
   "Source": "TourismWebsite",
   "BasePath": "_content/TourismWebsite",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\ensar\\Documents\\codes\\tourism\\TourismWebsite\\obj\\Debug\\net9.0\\compressed\\0anhb3imx1-yjnewyvt31.gz",
+      "Identity": "C:\\Users\\ensar\\Documents\\codes\\tourism\\TourismWebsite\\obj\\Debug\\net9.0\\compressed\\0anhb3imx1-3fjz7sqg6s.gz",
       "SourceId": "TourismWebsite",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\ensar\\Documents\\codes\\tourism\\TourismWebsite\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/TourismWebsite",
-      "RelativePath": "css/site#[.{fingerprint=yjnewyvt31}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=3fjz7sqg6s}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -31,8 +31,8 @@
       "RelatedAsset": "C:\\Users\\ensar\\Documents\\codes\\tourism\\TourismWebsite\\wwwroot\\css\\site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "4jd6sz8ux3",
-      "Integrity": "AJJHcoCjGpUyZbOOmy/yl9OKaOVLA2vqCu93pttX7Y8=",
+      "Fingerprint": "t25mox8gbt",
+      "Integrity": "y4AOw8IvZfmP6si+vNzcRTxV2ety0fydKn7VJi7/6Cc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\ensar\\Documents\\codes\\tourism\\TourismWebsite\\wwwroot\\css\\site.css"
@@ -1417,8 +1417,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "yjnewyvt31",
-      "Integrity": "voa/zFd9QJBxbCa4GjvfEurH5fjHx29AhlYH4Egh3sw=",
+      "Fingerprint": "3fjz7sqg6s",
+      "Integrity": "8bvXXCjbD8ezSR6s80hBXFnYRECiZ4F2XN7M/BeLgKk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -1606,8 +1606,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "08gb1y5lv9",
-      "Integrity": "IODKfkNAD8bn6A4vxVqaZZFvj1XfZlVm3RHjKjusmy0=",
+      "Fingerprint": "9p470fayb5",
+      "Integrity": "jc9+E0iqGiQogYTpZV+mlUnHQhaIzA7nfSDCCg0IwYM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\slide3.jpg"
@@ -2896,13 +2896,13 @@
   ],
   "Endpoints": [
     {
-      "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\ensar\\Documents\\codes\\tourism\\TourismWebsite\\obj\\Debug\\net9.0\\compressed\\0anhb3imx1-yjnewyvt31.gz",
+      "Route": "css/site.3fjz7sqg6s.css",
+      "AssetFile": "C:\\Users\\ensar\\Documents\\codes\\tourism\\TourismWebsite\\obj\\Debug\\net9.0\\compressed\\0anhb3imx1-3fjz7sqg6s.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000206696982"
+          "Quality": "0.000203915171"
         }
       ],
       "ResponseHeaders": [
@@ -2912,19 +2912,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4837"
+          "Value": "4903"
         },
         {
           "Name": "ETag",
-          "Value": "\"AJJHcoCjGpUyZbOOmy/yl9OKaOVLA2vqCu93pttX7Y8=\""
+          "Value": "\"y4AOw8IvZfmP6si+vNzcRTxV2ety0fydKn7VJi7/6Cc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 17 May 2025 17:37:06 GMT"
+          "Value": "Wed, 21 May 2025 20:08:21 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -2940,18 +2940,26 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"voa/zFd9QJBxbCa4GjvfEurH5fjHx29AhlYH4Egh3sw=\""
+          "Value": "W/\"8bvXXCjbD8ezSR6s80hBXFnYRECiZ4F2XN7M/BeLgKk=\""
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "3fjz7sqg6s"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-voa/zFd9QJBxbCa4GjvfEurH5fjHx29AhlYH4Egh3sw="
+          "Value": "sha256-8bvXXCjbD8ezSR6s80hBXFnYRECiZ4F2XN7M/BeLgKk="
         }
       ]
     },
     {
-      "Route": "css/site.css",
+      "Route": "css/site.3fjz7sqg6s.css",
       "AssetFile": "C:\\Users\\ensar\\Documents\\codes\\tourism\\TourismWebsite\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2961,7 +2969,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "20414"
+          "Value": "20381"
         },
         {
           "Name": "Content-Type",
@@ -2969,121 +2977,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"voa/zFd9QJBxbCa4GjvfEurH5fjHx29AhlYH4Egh3sw=\""
+          "Value": "\"8bvXXCjbD8ezSR6s80hBXFnYRECiZ4F2XN7M/BeLgKk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 17 May 2025 17:37:06 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-voa/zFd9QJBxbCa4GjvfEurH5fjHx29AhlYH4Egh3sw="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.css.gz",
-      "AssetFile": "C:\\Users\\ensar\\Documents\\codes\\tourism\\TourismWebsite\\obj\\Debug\\net9.0\\compressed\\0anhb3imx1-yjnewyvt31.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4837"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"AJJHcoCjGpUyZbOOmy/yl9OKaOVLA2vqCu93pttX7Y8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 17 May 2025 17:37:06 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-AJJHcoCjGpUyZbOOmy/yl9OKaOVLA2vqCu93pttX7Y8="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.yjnewyvt31.css",
-      "AssetFile": "C:\\Users\\ensar\\Documents\\codes\\tourism\\TourismWebsite\\obj\\Debug\\net9.0\\compressed\\0anhb3imx1-yjnewyvt31.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000206696982"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4837"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"AJJHcoCjGpUyZbOOmy/yl9OKaOVLA2vqCu93pttX7Y8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 17 May 2025 17:37:06 GMT"
+          "Value": "Wed, 21 May 2025 20:08:21 GMT"
         },
         {
           "Name": "Cache-Control",
           "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"voa/zFd9QJBxbCa4GjvfEurH5fjHx29AhlYH4Egh3sw=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "yjnewyvt31"
+          "Value": "3fjz7sqg6s"
         },
         {
           "Name": "label",
@@ -3091,13 +2999,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-voa/zFd9QJBxbCa4GjvfEurH5fjHx29AhlYH4Egh3sw="
+          "Value": "sha256-8bvXXCjbD8ezSR6s80hBXFnYRECiZ4F2XN7M/BeLgKk="
         }
       ]
     },
     {
-      "Route": "css/site.yjnewyvt31.css",
-      "AssetFile": "C:\\Users\\ensar\\Documents\\codes\\tourism\\TourismWebsite\\wwwroot\\css\\site.css",
+      "Route": "css/site.3fjz7sqg6s.css.gz",
+      "AssetFile": "C:\\Users\\ensar\\Documents\\codes\\tourism\\TourismWebsite\\obj\\Debug\\net9.0\\compressed\\0anhb3imx1-3fjz7sqg6s.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3106,7 +3014,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "20414"
+          "Value": "4903"
         },
         {
           "Name": "Content-Type",
@@ -3114,56 +3022,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"voa/zFd9QJBxbCa4GjvfEurH5fjHx29AhlYH4Egh3sw=\""
+          "Value": "\"y4AOw8IvZfmP6si+vNzcRTxV2ety0fydKn7VJi7/6Cc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 17 May 2025 17:37:06 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "yjnewyvt31"
-        },
-        {
-          "Name": "label",
-          "Value": "css/site.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-voa/zFd9QJBxbCa4GjvfEurH5fjHx29AhlYH4Egh3sw="
-        }
-      ]
-    },
-    {
-      "Route": "css/site.yjnewyvt31.css.gz",
-      "AssetFile": "C:\\Users\\ensar\\Documents\\codes\\tourism\\TourismWebsite\\obj\\Debug\\net9.0\\compressed\\0anhb3imx1-yjnewyvt31.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4837"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"AJJHcoCjGpUyZbOOmy/yl9OKaOVLA2vqCu93pttX7Y8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 17 May 2025 17:37:06 GMT"
+          "Value": "Wed, 21 May 2025 20:08:21 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3181,7 +3044,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "yjnewyvt31"
+          "Value": "3fjz7sqg6s"
         },
         {
           "Name": "label",
@@ -3189,7 +3052,144 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-AJJHcoCjGpUyZbOOmy/yl9OKaOVLA2vqCu93pttX7Y8="
+          "Value": "sha256-y4AOw8IvZfmP6si+vNzcRTxV2ety0fydKn7VJi7/6Cc="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css",
+      "AssetFile": "C:\\Users\\ensar\\Documents\\codes\\tourism\\TourismWebsite\\obj\\Debug\\net9.0\\compressed\\0anhb3imx1-3fjz7sqg6s.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000203915171"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4903"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"y4AOw8IvZfmP6si+vNzcRTxV2ety0fydKn7VJi7/6Cc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 20:08:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"8bvXXCjbD8ezSR6s80hBXFnYRECiZ4F2XN7M/BeLgKk=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8bvXXCjbD8ezSR6s80hBXFnYRECiZ4F2XN7M/BeLgKk="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css",
+      "AssetFile": "C:\\Users\\ensar\\Documents\\codes\\tourism\\TourismWebsite\\wwwroot\\css\\site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "20381"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"8bvXXCjbD8ezSR6s80hBXFnYRECiZ4F2XN7M/BeLgKk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 20:08:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-8bvXXCjbD8ezSR6s80hBXFnYRECiZ4F2XN7M/BeLgKk="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css.gz",
+      "AssetFile": "C:\\Users\\ensar\\Documents\\codes\\tourism\\TourismWebsite\\obj\\Debug\\net9.0\\compressed\\0anhb3imx1-3fjz7sqg6s.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4903"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"y4AOw8IvZfmP6si+vNzcRTxV2ety0fydKn7VJi7/6Cc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 21 May 2025 20:08:21 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-y4AOw8IvZfmP6si+vNzcRTxV2ety0fydKn7VJi7/6Cc="
         }
       ]
     },
@@ -4066,7 +4066,7 @@
       ]
     },
     {
-      "Route": "images/slide3.08gb1y5lv9.jpg",
+      "Route": "images/slide3.9p470fayb5.jpg",
       "AssetFile": "C:\\Users\\ensar\\Documents\\codes\\tourism\\TourismWebsite\\wwwroot\\images\\slide3.jpg",
       "Selectors": [],
       "ResponseHeaders": [
@@ -4076,7 +4076,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1602672"
+          "Value": "1954061"
         },
         {
           "Name": "Content-Type",
@@ -4084,11 +4084,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"IODKfkNAD8bn6A4vxVqaZZFvj1XfZlVm3RHjKjusmy0=\""
+          "Value": "\"jc9+E0iqGiQogYTpZV+mlUnHQhaIzA7nfSDCCg0IwYM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 20:09:51 GMT"
+          "Value": "Wed, 21 May 2025 18:54:42 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4098,7 +4098,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "08gb1y5lv9"
+          "Value": "9p470fayb5"
         },
         {
           "Name": "label",
@@ -4106,7 +4106,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-IODKfkNAD8bn6A4vxVqaZZFvj1XfZlVm3RHjKjusmy0="
+          "Value": "sha256-jc9+E0iqGiQogYTpZV+mlUnHQhaIzA7nfSDCCg0IwYM="
         }
       ]
     },
@@ -4121,7 +4121,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1602672"
+          "Value": "1954061"
         },
         {
           "Name": "Content-Type",
@@ -4129,11 +4129,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"IODKfkNAD8bn6A4vxVqaZZFvj1XfZlVm3RHjKjusmy0=\""
+          "Value": "\"jc9+E0iqGiQogYTpZV+mlUnHQhaIzA7nfSDCCg0IwYM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 06 May 2025 20:09:51 GMT"
+          "Value": "Wed, 21 May 2025 18:54:42 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4143,7 +4143,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-IODKfkNAD8bn6A4vxVqaZZFvj1XfZlVm3RHjKjusmy0="
+          "Value": "sha256-jc9+E0iqGiQogYTpZV+mlUnHQhaIzA7nfSDCCg0IwYM="
         }
       ]
     },

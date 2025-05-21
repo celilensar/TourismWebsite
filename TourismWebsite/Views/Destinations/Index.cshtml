@@ -6,65 +6,51 @@
     var isAdmin = Context.Session.GetString("IsAdmin") == "True"; // Admin durumunu değişkene alalım
 }
 
-<h1>Destinasyonlar</h1>
+<h1 class="mb-4 fw-bold">Destinasyonlar</h1>
 
 @if (isAdmin) // Sadece admin ise Yeni Ekle butonunu göster
 {
     <p>
-        <a asp-action="Create" class="btn btn-success">Yeni Destinasyon Ekle</a>
+        <a asp-action="Create" class="btn btn-outline-success mb-4">Yeni Destinasyon Ekle</a>
     </p>
 }
 
-<table class="table table-striped table-hover">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.First().Name) @* İlk elemandan başlık almak güvenli değilse "İsim" yazılabilir *@
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.First().Description)
-            </th>
-             <th>
-                Resim
-            </th>
-            @if (isAdmin) // Sadece admin ise İşlemler sütununu göster
-            {
-                <th>İşlemler</th> @* Eylem linkleri için başlık *@
-            }
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                <a asp-controller="Tours" asp-action="Index" asp-route-destinationId="@item.Id">
-                    @Html.DisplayFor(modelItem => item.Name)
-                </a>
-            </td>
-            <td>
-                @* Açıklama çok uzunsa kısaltılabilir, şimdilik tam gösterelim *@
-                @Html.DisplayFor(modelItem => item.Description) 
-            </td>
-            <td>
-                @if (!string.IsNullOrEmpty(item.ImageUrl))
-                {
-                    <img src="@item.ImageUrl" alt="@item.Name" style="max-width: 100px; max-height: 75px;" />
-                }
-                else
-                {
-                    <span>(Resim Yok)</span>
-                }
-            </td>
-            @if (isAdmin) // Sadece admin ise işlem linklerini göster
-            {
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Düzenle</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm">Detaylar</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Sil</a> |
-                    <a asp-controller="Tours" asp-action="Index" asp-route-destinationId="@item.Id" class="btn btn-primary btn-sm">Turları Yönet</a>
-                </td>
-            }
-        </tr>
-}
-    </tbody>
-</table> 
+<div class="row g-4">
+    @foreach (var item in Model)
+    {
+        <div class="col-12">
+            <div class="card modern-destination d-flex flex-row align-items-stretch p-0 border-0 shadow-sm" style="border-radius: 1.5rem; min-height: 160px; overflow: hidden;">
+                <div style="width: 180px; min-width: 180px; height: 160px; background: #f3f4f6; display: flex; align-items: center; justify-content: center;">
+                    @if (!string.IsNullOrEmpty(item.ImageUrl))
+                    {
+                        <img src="@item.ImageUrl" alt="@item.Name" style="width: 100%; height: 100%; object-fit: cover; border-radius: 0;" />
+                    }
+                    else
+                    {
+                        <span class="text-muted small">(Resim Yok)</span>
+                    }
+                </div>
+                <div class="flex-grow-1 d-flex flex-column justify-content-between p-4">
+                    <div>
+                        <h5 class="fw-bold mb-2">@item.Name</h5>
+                        <div class="mb-2 text-muted" style="font-size: 1rem;">@item.Description</div>
+                        <div class="d-flex align-items-center gap-3 mb-2">
+                            <span class="badge bg-success bg-opacity-75" style="font-size:0.85rem;">Popüler</span>
+                            <span class="text-warning fw-semibold" style="font-size:1.1rem;"><i class="bi bi-star-fill me-1"></i>4.7</span>
+                            <span class="text-muted" style="font-size:0.95rem;"><i class="bi bi-geo-alt me-1"></i>Türkiye</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 text-secondary" style="font-size:0.95rem;">
+                            <span><i class="bi bi-wifi"></i> Wifi</span>
+                            <span><i class="bi bi-car-front"></i> Otopark</span>
+                            <span><i class="bi bi-cup-straw"></i> Kafe</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex flex-column justify-content-between align-items-end p-4" style="min-width: 170px;">
+                    <a asp-controller="Tours" asp-action="Index" asp-route-destinationId="@item.Id" class="btn btn-primary px-4 py-2 fw-semibold mb-2" style="border-radius: 1.5rem; font-size: 1.1rem;">Turları Gör</a>
+                    <button class="btn btn-light border rounded-circle shadow-sm" style="width: 40px; height: 40px;"><i class="bi bi-heart"></i></button>
+                </div>
+            </div>
+        </div>
+    }
+</div> 

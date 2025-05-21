@@ -1,21 +1,22 @@
-﻿@{
+﻿@model IEnumerable<TourismWebsite.Models.Destination> 
+@{
     ViewData["Title"] = "Ana Sayfa";
 }
 
 <style>
     /* Carousel Styles */
     #heroCarousel {
-        width: 100vw; /* Tam viewport genişliği */
-        max-width: 100vw; /* Genişlik sınırını kaldır */
-        margin-left: calc(50% - 50vw); /* Soldaki potansiyel boşluğu sıfırla */
-        margin-right: calc(50% - 50vw); /* Sağdaki potansiyel boşluğu sıfırla */
+        width: 100vw;
+        max-width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: calc(50% - 50vw);
         padding-left: 0;
         padding-right: 0;
-        /* position: absolute; Kaldırıldı */
-        /* top: 0; Kaldırıldı */
-        /* left: 0; Kaldırıldı */
-        /* z-index: -1; Kaldırıldı */
-        /* mb-5 sınıfı zaten alt boşluk veriyor */
+        /* position: absolute; */
+        /* top: 0; */
+        /* left: 0; */
+        /* z-index: 0; */
+        margin-top: 0 !important;
     }
 
     .carousel-item {
@@ -157,15 +158,24 @@
 </style>
 
 @* Carousel container dışına alındı *@
-<div id="heroCarousel" class="carousel slide carousel-fade mb-5" data-bs-ride="carousel" data-bs-interval="6000"> @* Otomatik geçiş aralığı 6sn *@
+<div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000" style="margin-bottom:0;">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-        @* 1. Slayt: Karadeniz *@
+        @* 1. Slayt: Kapadokya *@
         <div class="carousel-item active"> @* Active class buraya taşındı *@
+            <img src="/images/slide3.jpg" class="d-block" alt="Kapadokya Balonlar"> @* Resim ve alt text güncellendi *@
+             <div class="carousel-caption d-none d-md-block">
+                 <h1 class="display-4">Kapadokya'nın Büyüsü</h1> @* Başlık ve metin güncellendi *@
+                 <p class="lead">Peribacaları üzerinde unutulmaz bir balon deneyimi yaşayın.</p>
+                 <a href="#" class="btn btn-primary btn-lg mt-3">Turları İncele</a>
+            </div>
+        </div>
+        @* 2. Slayt: Karadeniz *@
+        <div class="carousel-item">
             <img src="/images/slide1.jpg" class="d-block" alt="Karadeniz Manzarası"> @* Resim ve alt text güncellendi *@
             <div class="carousel-caption d-none d-md-block">
                  <h1 class="display-4">Karadeniz'in Yeşili</h1> @* Başlık ve metin güncellendi *@
@@ -173,22 +183,13 @@
                  <a href="#" class="btn btn-primary btn-lg mt-3">Turları İncele</a>
             </div>
         </div>
-        @* 2. Slayt: Ege *@
+        @* 3. Slayt: Ege *@
         <div class="carousel-item">
             <img src="/images/slide2.jpg" class="d-block" alt="Ege Sahili"> @* Resim ve alt text güncellendi *@
             <div class="carousel-caption d-none d-md-block">
                 <h1 class="display-4">Ege'nin Mavisi</h1> @* Başlık ve metin güncellendi *@
                 <p class="lead">Turkuaz koylarda serinleyin, tarihin izlerini sürün.</p>
                 <a href="#" class="btn btn-primary btn-lg mt-3">Turları İncele</a>
-            </div>
-        </div>
-        @* 3. Slayt: Kapadokya *@
-        <div class="carousel-item">
-            <img src="/images/slide3.jpg" class="d-block" alt="Kapadokya Balonlar"> @* Resim ve alt text güncellendi *@
-             <div class="carousel-caption d-none d-md-block">
-                 <h1 class="display-4">Kapadokya'nın Büyüsü</h1> @* Başlık ve metin güncellendi *@
-                 <p class="lead">Peribacaları üzerinde unutulmaz bir balon deneyimi yaşayın.</p>
-                 <a href="#" class="btn btn-primary btn-lg mt-3">Turları İncele</a>
             </div>
         </div>
     </div>
@@ -203,55 +204,51 @@
 </div>
 
 @* Sayfa içeriği container içine alındı ve sınıf eklendi *@
-<div class="container main-content-below-carousel">
+<div class="container main-content-below-carousel" style="margin-top:0;">
 
     <!-- Öne Çıkan Rotalar -->
-    <h2 class="text-center mb-4">Öne Çıkan Rotalar</h2>
-    <div class="row row-cols-1 row-cols-md-3 g-4 mb-5 featured-routes">
-        <div class="col">
-            <div class="card h-100">
-                <img src="/images/slide3.jpg" class="card-img-top" alt="Kapadokya">
-                <div class="card-body">
-                    <h5 class="card-title">Kapadokya</h5>
-                    <p class="card-text">Peribacalarının üzerinde unutulmaz bir balon yolculuğu ile güne başlayın.</p>
+    <h2 class="text-center mb-4 mt-5">Öne Çıkan Rotalar</h2>
+    @if (Model != null && Model.Any())
+    {
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mb-5 featured-routes">
+            @foreach (var destination in Model)
+            {
+                <div class="col">
+                    <div class="card h-100">
+                        @if (!string.IsNullOrEmpty(destination.ImageUrl))
+                        {
+                            <img src="@destination.ImageUrl" class="card-img-top" alt="@destination.Name">
+                        }
+                        else
+                        {
+                            <img src="/images/placeholder.jpg" class="card-img-top" alt="@destination.Name"> @* Opsiyonel: Resim yoksa placeholder *@
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@destination.Name</h5>
+                            @if (!string.IsNullOrEmpty(destination.Description))
+                            {
+                                <p class="card-text">@destination.Description.Substring(0, Math.Min(destination.Description.Length, 100))@((destination.Description.Length > 100) ? "..." : "")</p>
+                            }
+                        </div>
+                        <div class="card-footer">
+                            <a asp-controller="Tours" asp-action="Index" asp-route-destinationId="@destination.Id" class="btn btn-outline-secondary btn-sm">Turları Gör</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-outline-secondary btn-sm">Detaylar</a>
-                </div>
-            </div>
+            }
         </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="/images/slide2.jpg" class="card-img-top" alt="Ege">
-                <div class="card-body">
-                    <h5 class="card-title">Ege</h5>
-                    <p class="card-text">Turkuaz koylarda yüzün, antik kentleri keşfedin ve güneşin tadını çıkarın.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-outline-secondary btn-sm">Detaylar</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <img src="/images/slide1.jpg" class="card-img-top" alt="Karadeniz">
-                <div class="card-body">
-                    <h5 class="card-title">Karadeniz</h5>
-                    <p class="card-text">Doğanın kalbinde, yemyeşil yaylalarda huzurlu ve otantik bir deneyim yaşayın.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-outline-secondary btn-sm">Detaylar</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    }
+    else
+    {
+        <p class="text-center">Gösterilecek öne çıkan rota bulunamadı.</p>
+    }
 
     <!-- Hakkımızda/Tanıtım -->
     <div class="row mb-5">
         <div class="col-md-8 offset-md-2 text-center">
             <h2>Biz Kimiz?</h2>
-            <p class="lead">[Şirket Adı/Proje Adı] olarak, seyahat tutkunlarına en iyi deneyimleri sunmak için buradayız. Uzman ekibimizle hazırladığımız turlar ve seçkin rotalarla unutulmaz anılar biriktirmenizi hedefliyoruz. Keşfetmeye hazır mısınız?</p>
-            <a asp-controller="Account" asp-action="Register" class="btn btn-success">Hemen Kayıt Olun!</a>
+            <p class="lead">AlgoTour olarak, seyahat tutkunlarına en iyi deneyimleri sunmak için buradayız. Uzman ekibimizle hazırladığımız turlar ve seçkin rotalarla unutulmaz anılar biriktirmenizi hedefliyoruz. Keşfetmeye hazır mısınız?</p>
+            <a asp-controller="Account" asp-action="Register" class="btn btn-secondary">Hemen Kayıt Olun!</a>
         </div>
     </div>
 

@@ -83,9 +83,16 @@ header.sticky-top.bg-background {
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
 }
 
-.navbar-modern .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.15); /* Beyaz hover arka planı (%15 Opaklık) */
+.navbar-modern .nav-link:hover,
+.navbar-modern .navbar-nav .nav-link:hover {
+    color: #0f172a !important; /* Daha koyu ve belirgin metin */
+    background-color: #e2e8f0 !important; /* Daha belirgin açık gri arka plan */
     text-decoration: none;
+}
+
+.navbar-modern .navbar-nav .nav-link.active {
+    color: #0f172a !important;
+    background-color: #cbd5e1 !important;
 }
 
 /* Auth Butonları (Dark Theme) */
@@ -108,7 +115,9 @@ header.sticky-top.bg-background {
 }
 
 .btn-ghost:hover {
-    background-color: rgba(255, 255, 255, 0.15); /* Beyaz hover arka planı (%15 Opaklık) */
+    background-color: #f1f5f9;
+    border-color: var(--bs-border-color);
+    color: #000 !important;
 }
 
 /* Bootstrap Buton Boyutları ile Uyum */
@@ -272,7 +281,8 @@ offcanvas-body hr {
 }
 
 select.form-control {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M4 6l4 4 4-4'/%3e%3c/svg%3e"); /* Ok rengi (gray-500) */
+    /* background-image: none !important; */
+    background-image: none !important;
 }
 
 .btn-primary { /* Ana buton */
@@ -800,4 +810,36 @@ main {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--bs-primary);
+}
+
+.main-content-below-carousel h2.text-center.mb-4.mt-5 {
+    margin-top: 3rem !important;
+}
+
+/* Modern destinasyon kartları */
+.card.modern-destination {
+    border-radius: 1.25rem;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.06);
+    border: none;
+    background: #fff;
+    transition: box-shadow 0.2s;
+}
+.card.modern-destination:hover {
+    box-shadow: 0 6px 32px 0 rgba(0,0,0,0.10);
+}
+.card.modern-destination .btn-primary {
+    background: #6366f1;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    padding: 0.5rem 2rem;
+    transition: background 0.2s;
+}
+.card.modern-destination .btn-primary:hover {
+    background: #4338ca;
+}
+
+.featured-routes {
+    justify-content: center !important;
 }

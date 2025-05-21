@@ -4,37 +4,40 @@
     ViewData["Title"] = "Yeni Destinasyon Ekle"; 
 }
 
-<h1>Yeni Destinasyon Ekle</h1>
-<hr />
+<div class="row justify-content-center mt-4">
+    <div class="col-md-8 col-lg-7">
+        <div class="card shadow-sm">
+            <div class="card-body p-4">
+                <h3 class="card-title text-center mb-4">Yeni Destinasyon Ekle</h3>
 
-<div class="row">
-    <div class="col-md-6"> <%-- Formu biraz daha geniş tutalım --%>
-        <form asp-action="Create" method="post"> 
-            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
-            
-            <div class="form-group mb-3">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                <form asp-action="Create" method="post"> 
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    
+                    <div class="form-group mb-3">
+                        <label asp-for="Name" class="control-label fw-semibold"></label>
+                        <input asp-for="Name" class="form-control form-control-lg" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-group mb-3">
+                        <label asp-for="Description" class="control-label fw-semibold"></label>
+                        <textarea asp-for="Description" class="form-control form-control-lg" rows="5"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-group mb-3">
+                        <label asp-for="ImageUrl" class="control-label fw-semibold">Resim URL (İsteğe Bağlı)</label>
+                        <input asp-for="ImageUrl" class="form-control form-control-lg" />
+                        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+                    </div>
+                    
+                    <div class="form-group mt-4 d-grid gap-2">
+                        <button type="submit" class="btn btn-outline-primary btn-lg">Oluştur</button>
+                        <a asp-action="Index" class="btn btn-outline-secondary btn-lg">Listeye Geri Dön</a>
+                    </div>
+                </form>
             </div>
-            
-            <div class="form-group mb-3">
-                <label asp-for="Description" class="control-label"></label>
-                <textarea asp-for="Description" class="form-control" rows="5"></textarea>
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            
-            <div class="form-group mb-3">
-                <label asp-for="ImageUrl" class="control-label">Resim URL (İsteğe Bağlı)</label>
-                <input asp-for="ImageUrl" class="form-control" />
-                <span asp-validation-for="ImageUrl" class="text-danger"></span>
-            </div>
-            
-            <div class="form-group mt-4"> 
-                <button type="submit" class="btn btn-primary">Oluştur</button>
-                <a asp-action="Index" class="btn btn-outline-secondary ms-2">Listeye Geri Dön</a>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
 

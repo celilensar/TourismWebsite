@@ -21,23 +21,23 @@
                     </a>
                     <ul class="navbar-nav d-flex flex-row gap-3">
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Destinations" asp-action="Index">Destinasyonlar</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Destinations" asp-action="Index">Destinasyonlar</a>
                         </li>
                         @if (Context.Session.GetString("UserEmail") != null)
                         {
                             <li class="nav-item">
                                 @if (Context.Session.GetString("IsAdmin") == "True")
                                 {
-                                    <a class="nav-link" asp-area="" asp-controller="Booking" asp-action="AllBookings">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Booking" asp-action="AllBookings">
                                         <i class="bi bi-calendar-check me-1"></i>Rezervasyonlar
                                     </a>
                                 }
                                 else
                                 {
-                                    <a class="nav-link" asp-area="" asp-controller="Booking" asp-action="MyBookings">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Booking" asp-action="MyBookings">
                                         <i class="bi bi-calendar-check me-1"></i>Rezervasyonlarım
                                     </a>
                                 }
@@ -53,7 +53,7 @@
                             <a asp-controller="Account" asp-action="Profile" class="text-decoration-none text-muted">@Context.Session.GetString("UserName")</a>
                         </span>
                         <form asp-controller="Account" asp-action="Logout" method="post" id="logoutFormDesktop">
-                            <button type="submit" class="btn btn-sm btn-ghost d-flex align-items-center">
+                            <button type="submit" class="btn btn-sm btn-ghost d-flex align-items-center" style="color: #000;">
                                 <i class="bi bi-power logout-icon me-1"></i>
                                 Çıkış Yap 
                             </button>
@@ -61,9 +61,8 @@
                     }
                     else
                     {
-                        <a class="btn btn-sm btn-ghost" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+                        <a class="btn btn-sm btn-ghost" asp-controller="Account" asp-action="Login" style="color: #000;">Giriş Yap</a>
                         <a class="btn btn-sm btn-dark-modern" asp-controller="Account" asp-action="Register">Kayıt Ol</a>
-                        <a class="btn btn-sm btn-ghost" asp-controller="Home" asp-action="Privacy">Gizlilik</a>
                     }
                 </div>
             </div>
@@ -87,31 +86,28 @@
       <div class="offcanvas-body d-flex flex-column">
             <ul class="navbar-nav flex-grow-1 gap-2 mb-4">
                 <li class="nav-item">
-                    <a class="nav-link fs-6 fw-medium" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
+                    <a class="nav-link fs-6 fw-medium text-dark" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fs-6 fw-medium" asp-area="" asp-controller="Destinations" asp-action="Index">Destinasyonlar</a>
+                    <a class="nav-link fs-6 fw-medium text-dark" asp-area="" asp-controller="Destinations" asp-action="Index">Destinasyonlar</a>
                 </li>
                 @if (Context.Session.GetString("UserEmail") != null)
                 {
                     <li class="nav-item">
                         @if (Context.Session.GetString("IsAdmin") == "True")
                         {
-                            <a class="nav-link fs-6 fw-medium" asp-area="" asp-controller="Booking" asp-action="AllBookings">
+                            <a class="nav-link fs-6 fw-medium text-dark" asp-area="" asp-controller="Booking" asp-action="AllBookings">
                                 <i class="bi bi-calendar-check me-1"></i>Rezervasyonlar
                             </a>
                         }
                         else
                         {
-                            <a class="nav-link fs-6 fw-medium" asp-area="" asp-controller="Booking" asp-action="MyBookings">
+                            <a class="nav-link fs-6 fw-medium text-dark" asp-area="" asp-controller="Booking" asp-action="MyBookings">
                                 <i class="bi bi-calendar-check me-1"></i>Rezervasyonlarım
                             </a>
                         }
                     </li>
                 }
-                <li class="nav-item">
-                    <a class="nav-link fs-6 fw-medium" asp-area="" asp-controller="Home" asp-action="Privacy">Gizlilik</a>
-                </li>
             </ul>
             <hr>
             <div class="mt-auto">
@@ -123,7 +119,7 @@
                              <a asp-controller="Account" asp-action="Profile" class="text-decoration-none text-muted">@Context.Session.GetString("UserName")</a>
                          </span>
                          <form asp-controller="Account" asp-action="Logout" method="post" id="logoutFormMobile">
-                             <button type="submit" class="btn btn-ghost w-100 d-flex align-items-center justify-content-center">
+                             <button type="submit" class="btn btn-ghost w-100 d-flex align-items-center justify-content-center" style="color: #000;">
                                  <i class="bi bi-power logout-icon me-2"></i>
                                  Çıkış Yap
                              </button>
@@ -133,7 +129,7 @@
                 else
                 {
                     <div class="d-flex flex-column gap-2">
-                        <a class="btn btn-ghost w-100" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+                        <a class="btn btn-ghost w-100" asp-controller="Account" asp-action="Login" style="color: #000;">Giriş Yap</a>
                         <a class="btn btn-dark-modern w-100" asp-controller="Account" asp-action="Register">Kayıt Ol</a>
                     </div>
                 }
@@ -147,9 +143,62 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="footer-section border-top py-5 bg-light">
         <div class="container">
-            &copy; 2025 - TourismWebsite - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row gy-4">
+                <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
+                    <div class="footer-logo mb-3">
+                        <a class="h5 fw-bold text-decoration-none text-dark" asp-area="" asp-controller="Home" asp-action="Index">ALGOTOUR</a>
+                    </div>
+                    <p class="footer-tagline text-muted small">Harika yerler keşfedin.</p>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="footer-heading mb-3 fw-bold">Keşfet</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a asp-controller="Destinations" asp-action="Index">Destinasyonlar</a></li>
+                        <li><a href="#">Turlar</a></li>
+                        <li><a href="#">Aktiviteler</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="footer-heading mb-3 fw-bold">Şirket</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Hakkımızda</a></li>
+                        <li><a href="#">Kariyer</a></li>
+                        <li><a href="#">İletişim</a></li>
+                        <li><a asp-controller="Home" asp-action="Privacy">Gizlilik</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6 class="footer-heading mb-3 fw-bold">Yardım</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Destek Merkezi</a></li>
+                        <li><a href="#">SSS</a></li>
+                        <li><a href="#">Rezervasyon İptali</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-3">
+                    <h6 class="footer-heading mb-3 fw-bold">Sosyal Medya</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row border-top pt-3 mt-4 footer-bottom-row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="small text-muted mb-0">© @DateTime.Now.Year ALGOTOUR. Tüm hakları saklıdır.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline mb-0 footer-bottom-links">
+                        <li class="list-inline-item"><a asp-controller="Home" asp-action="Privacy">Gizlilik Politikası</a></li>
+                        <li class="list-inline-item"><a href="#">Kullanım Şartları</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
